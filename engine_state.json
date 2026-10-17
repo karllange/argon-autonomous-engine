@@ -1,0 +1,31 @@
+{
+  "project": "ARGON-01",
+  "governance": "PERSONAL_ZERO_PHI",
+  "offer": {
+    "name": "The ARGON Turnkey Agent Vault",
+    "core_price_usd": 97,
+    "upsell_price_usd": 297,
+    "target_revenue_cycle_1_usd": 2000
+  },
+  "capital_pool": {
+    "starting_budget_usd": 1000,
+    "allocated_tranche_usd": 100,
+    "remaining_reserve_usd": 900,
+    "max_spend_without_sale_usd": 50,
+    "scale_roas_trigger": 2.0
+  },
+  "telemetry": {
+    "active_tranche": 1,
+    "spend_usd": 0,
+    "revenue_usd": 0,
+    "impressions": 0,
+    "clicks": 0,
+    "opt_ins": 0,
+    "sales": 0
+  },
+  "self_healing_flags": {
+    "current_status": "READY_FOR_DEPLOYMENT_AND_STRIPE",
+    "action_required": "CONNECT_STRIPE_AND_DEPLOY_PUBLIC_URL",
+    "last_agent_run": "PHASE_1_3_MARKET_INTEL_AND_TRANCHE_1_ADS"
+  }
+}
