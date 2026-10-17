@@ -56,8 +56,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "LIVE_WITH_PORTAL_AND_NURTURE",
-    "action_required": "SET_LEAD_WEBHOOK_URL_AND_POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS",
-    "last_agent_run": "OVERNIGHT_PHASE_2_5"
+    "current_status": "LIVE_WITH_RESEARCHY_INTEL_AND_PORTAL",
+    "action_required": "POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS_AND_LAUNCH_TRANCHE_1",
+    "last_agent_run": "OVERNIGHT_PHASE_2_5_RESEARCHY_SYNC"
   }
 }
