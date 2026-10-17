@@ -1,0 +1,467 @@
+{
+  "generated_at": "2026-10-16T22:21:55-07:00",
+  "window": {
+    "start": "2026-10-02",
+    "end": "2026-10-16",
+    "timezone": "America/Los_Angeles"
+  },
+  "sources_searched": [
+    {
+      "platform": "X",
+      "where": "Grok CLI live search (~/.grok/bin/grok, -m grok-4.7)",
+      "method": "single run with --prompt-file, foreground",
+      "status": "failed",
+      "notes": "Exited at once with 'Not signed in. To authenticate without a browser, run: grok login --device-code'. No usage-limit message was reached. No X data came from Grok."
+    },
+    {
+      "platform": "X",
+      "where": "x.com full-archive post search (connected X API tool)",
+      "method": "8 keyword queries, start/end limited to 2026-10-02 to 2026-10-16 PT, up to 100 results each, relevancy sort; each cited post re-fetched by ID to confirm full text, date, URL and metrics",
+      "status": "ok",
+      "notes": "Results are heavy with vendor and agency posts ('your ads aren't converting? DM me'). Those were excluded unless flagged. Each cited X quote was read in full from the API response."
+    },
+    {
+      "platform": "Reddit",
+      "where": "r/SaaS, r/Entrepreneur, r/marketing, r/Affiliatemarketing",
+      "method": "public JSON (www/api.reddit.com) returned 403; old.reddit.com redirected to login; used public Atom/RSS feeds instead: /r/<sub>/new.rss paginated (limit=100), /r/<sub>/search.rss with 22 queries per sub (restrict_sr, sort=new, t=month), and /comments/<id>/.rss for 217 in-window posts",
+      "status": "partial",
+      "notes": "1,167 unique posts collected; filtered to created 2026-10-02 to 2026-10-16. In-window post counts in /new: r/SaaS 999 (listing cap reached at 2026-10-04 19:34 PT; search feeds covered 2-4 Oct), r/Entrepreneur 43, r/marketing 39, r/Affiliatemarketing 31. Quotes were copied from the feed's HTML body, with tags stripped. Upvote scores are not in RSS, and post pages are behind a JS challenge, so Reddit engagement is given as comments visible in the comment RSS (a lower bound)."
+    }
+  ],
+  "complaints": [
+    {
+      "rank": 1,
+      "theme": "ai_babysitting",
+      "complaint": "Fixing the AI's mistakes eats the time it was supposed to save.",
+      "why_ranked": "Most-engaged complaint in the window. 5 quotes shown (4 X, 1 Reddit); the 4 X posts total 113 likes and 32 replies. 6 more X posts in the window say the same thing (e.g. @truly_AD 14 likes, @27yearold, @twumblunni, @moreinns, @Zerosolved, @vinsonleow). The Reddit audit post describes the same 'fix makes it worse' loop.",
+      "evidence": [
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@Anaya_sharma876",
+          "date": "2026-10-08T20:36-07:00",
+          "url": "https://x.com/Anaya_sharma876/status/2108401219161243754",
+          "quote": "Me: Who do you think fixes the app when AI builds the wrong thing? 💀\n\nInterviewer: AI can fix its own mistakes.\n\nMe: Then who fixes the mistakes it makes while fixing its mistakes?",
+          "engagement": {
+            "likes": 36,
+            "replies": 30,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 1002
+          },
+          "note": "joke/dialogue format",
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@OmegaWhiteoid",
+          "date": "2026-10-05T09:09-07:00",
+          "url": "https://x.com/OmegaWhiteoid/status/2107141212520288736",
+          "quote": "Astra made up some bullshit and tried to heavily gaslight me that it was the solution.",
+          "engagement": {
+            "likes": 44,
+            "replies": 1,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 1447
+          },
+          "note": "excerpt; the full post contains a slur, omitted by excerpting",
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@GreysonW98",
+          "date": "2026-10-12T13:26-07:00",
+          "url": "https://x.com/GreysonW98/status/2109742468057186688",
+          "quote": "When you integrate AI like this it actually slows down production because you spend most of your time just fixing its mistakes",
+          "engagement": {
+            "likes": 33,
+            "replies": 1,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 635
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@dansaavedrajr",
+          "date": "2026-10-16T05:57-07:00",
+          "url": "https://x.com/dansaavedrajr/status/2111078962168201275",
+          "quote": "After: quality dropped and we spent more time fixing its mistakes than it saved.",
+          "engagement": {
+            "likes": 0,
+            "replies": 0,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 3
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/Warm-Reaction-456",
+          "date": "2026-10-08T08:41-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x0u97x/ive_audited_12_ai_built_mvps_that_got_paying/",
+          "quote": "When something broke, the founder asked the AI to fix it and it did, mostly by adding code next to the old code instead of changing it.",
+          "post_title": "I've audited 12 AI built MVPs that got paying users. Here's what broke in almost every one",
+          "engagement": {
+            "comments_visible_in_rss": 1,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "theme": "ads_not_converting",
+      "complaint": "Paid ads on Reddit, Meta and Google burn the budget and bring zero or almost zero paying customers.",
+      "why_ranked": "Most frequent complaint on Reddit: at least 6 in-window r/SaaS posts report ad spend with ~0 paying users ($1,000, $400+, $2k+, £210, $4k, €400/mo). The r/SaaS story post (1wxabzn) drew 41 comments. 5 quotes shown (3 Reddit, 2 X). More X posts in the window: @TheDianaDennis ('Over 900k spent on ads with nothing to show for it.'), @SMBAwningMan ('I feel like I'm burning money on ads').",
+      "evidence": [
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/marketing_guy_37",
+          "date": "2026-10-07T09:57-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/",
+          "quote": "We spent $1,000 on Reddit Ads and got 0 users.",
+          "post_title": "We spent $1,000 on Reddit Ads and got 0 users. Complete breakdown.",
+          "engagement": {
+            "comments_visible_in_rss": 3,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/EdwardKost7",
+          "date": "2026-10-07T10:32-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x02sea/need_advice_on_marketing_please_400_ad_spend_and/",
+          "quote": "I ended up spending around $400+ on Reddit + Meta ads with only two free signups.",
+          "post_title": "Need advice on marketing please! $400+ ad spend and only 2 users.",
+          "engagement": {
+            "comments_visible_in_rss": 5,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/keepingmemories",
+          "date": "2026-10-04T01:13-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1wxabzn/my_first_saas_took_9_months_and_4k_in_ad_spent/",
+          "quote": "£210 on Meta in seven days brought around 15,000 visits and not one payer.",
+          "post_title": "My first SaaS took 9 months and 4k in ad spent and never made a penny. Here's what my second made in 4 weeks, and everything I learned.",
+          "engagement": {
+            "comments_visible_in_rss": 41,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@ASheikh69751",
+          "date": "2026-10-15T04:00-07:00",
+          "url": "https://x.com/ASheikh69751/status/2110687296702075148",
+          "quote": "I spent Rs9,000 on Google Ads.\nGot 0 sales.",
+          "engagement": {
+            "likes": 0,
+            "replies": 2,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 5
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@KBships",
+          "date": "2026-10-13T21:33-07:00",
+          "url": "https://x.com/KBships/status/2110227574995718411",
+          "quote": "I spent on ads a lot but zero sales.",
+          "engagement": {
+            "likes": 0,
+            "replies": 1,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 11
+          },
+          "quote_is_excerpt": true
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "theme": "ai_babysitting",
+      "complaint": "AI agents and automations need constant supervision because they skip steps, hallucinate partway through, or quietly break things.",
+      "why_ranked": "Recurs on both platforms. 5 quotes shown (3 X, 2 Reddit). The r/Entrepreneur post drew 17 comments, one asking 'How do you catch a run that's confidently wrong?'. Supporting X posts in the window: @AZEN_BTC ('An agent shouldn't require constant hand-holding'), @imharikumaran, @devXritesh (40 likes, 30 replies, saying reliability without constant supervision is the next breakthrough). An r/SaaS vendor post (1x6m2lx, 9 comments) warns that a long Zapier chain 'fails silently'.",
+      "evidence": [
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@0xPaulvibe",
+          "date": "2026-10-12T00:22-07:00",
+          "url": "https://x.com/0xPaulvibe/status/2109545244593209480",
+          "quote": "But is anyone actually seeing them move the needle without constant babysitting?\n\ni've noticed that the more freedom I give an agent, the more time I spend fixing its mistakes.",
+          "engagement": {
+            "likes": 8,
+            "replies": 6,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 267
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@AmatyaJoshi",
+          "date": "2026-10-15T03:31-07:00",
+          "url": "https://x.com/AmatyaJoshi/status/2110680073603010818",
+          "quote": "Now I spend 4 hours a day monitoring the agent, fixing its mistakes, and explaining to it why it shouldn’t delete the database.",
+          "engagement": {
+            "likes": 1,
+            "replies": 0,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 4
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@hrshlptel",
+          "date": "2026-10-14T00:37-07:00",
+          "url": "https://x.com/hrshlptel/status/2110273860926914761",
+          "quote": "It crushed the repetitive stuff and quietly broke two things I only found in the logs. Agents are fast juniors: great output, constant supervision.",
+          "engagement": {
+            "likes": 1,
+            "replies": 1,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 12
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/Entrepreneur",
+          "author": "u/W_E_B_D_E_V",
+          "date": "2026-10-14T10:50-07:00",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x5y0a3/why_most_agency_sops_fail_when_turned_into/",
+          "quote": "it works fine for the first two steps, then the AI starts skipping checks, summarizing the output, and hallucinating details halfway through. three weeks later the team gives up and goes back to doing it manually.",
+          "post_title": "Why most agency SOPs fail when turned into prompts and the exact framework to automate them properly",
+          "engagement": {
+            "comments_visible_in_rss": 17,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/Happy-Secretary5604",
+          "date": "2026-10-10T06:18-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x2f3xp/i_run_10_side_projects_with_ai_coding_tools_and/",
+          "quote": "While I was working on the second app, ChatGPT happily \"fixed\" the schema for its own needs and broke the first one.",
+          "post_title": "I run 10+ side projects with AI coding tools and ChatGPT quietly broke my Claude-written app last week. So I built a fix for my own mess.",
+          "engagement": {
+            "comments_visible_in_rss": 0,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "theme": "ads_not_converting",
+      "complaint": "Ads bring clicks or free signups, but people drop off after the click and no one pays.",
+      "why_ranked": "Highest-engagement single Reddit thread in this set (1wzfapf, 58 comments). 5 quotes shown (3 Reddit, 2 X). The 1x642m0 post drew 26 comments. A meme version on X got 20 likes and 4 replies. Several replies in r/SaaS make the same diagnosis ('free signups from paid ads with zero paid conversions').",
+      "evidence": [
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/GimmeAByte0101",
+          "date": "2026-10-06T14:47-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/",
+          "quote": "15 \"Buy now\" clicks from Reddit ads, 0 sales: what am I missing?",
+          "post_title": "15 \"Buy now\" clicks from Reddit ads, 0 sales: what am I missing?",
+          "engagement": {
+            "comments_visible_in_rss": 58,
+            "score": null
+          },
+          "quote_is_excerpt": false
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/GimmeAByte0101",
+          "date": "2026-10-06T15:14-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/peba5al/",
+          "quote": "Over the past week I spent about $700 on Reddit ads at roughly $150 a day, which brought about 535 visitors to the site. Of those, about 15 pressed Buy now, with the price right on the button, and reached checkout. Zero paid.",
+          "context": "comment by the original poster on: 15 \"Buy now\" clicks from Reddit ads, 0 sales: what am I missing?",
+          "engagement": {
+            "score": null,
+            "note": "comment; score not retrievable (Reddit JSON blocked)"
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/kkurtzz",
+          "date": "2026-10-14T14:46-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x642m0/6_months_building_an_ai_tool_2k_in_ads_almost_no/",
+          "quote": "We spent around $2,000 on Meta and Google ads. About 5% of clicks became free signups, which seemed reasonable. But as far as we can tell, not a single one became a paying customer.",
+          "post_title": "6 months building an AI tool, $2k+ in ads, almost no paying users. We turned off ads and things finally started working.",
+          "engagement": {
+            "comments_visible_in_rss": 26,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@Aryanpxcr7",
+          "date": "2026-10-07T08:27-07:00",
+          "url": "https://x.com/Aryanpxcr7/status/2107855267186766114",
+          "quote": "spent $10 on ads\n\nTargeted Tier 1 Countries\n45,476 impressions\n32 clicks\n0 sales\n\nWhat went wrong? No Idea.",
+          "engagement": {
+            "likes": 0,
+            "replies": 0,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 21
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@Akpanthankgod_",
+          "date": "2026-10-05T12:23-07:00",
+          "url": "https://x.com/Akpanthankgod_/status/2107190051717501287",
+          "quote": "Advertiser ; My ads aren’t converting",
+          "engagement": {
+            "likes": 20,
+            "replies": 4,
+            "reposts": 0,
+            "quotes": 1,
+            "impressions": 1674
+          },
+          "note": "meme-format post; image not inspected",
+          "quote_is_excerpt": true
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "theme": "manual_funnel_building",
+      "complaint": "Building funnels and lead follow-up by hand across scattered tools is slow, and the setup breaks.",
+      "why_ranked": "Weakest of the three themes. It recurs, but most X posts that say it are vendors pitching a fix. The most-engaged one (@ErnestoSOFTWARE, 61 likes, 10 replies) is a FunnelFox promo, and @Digistore24 and @clickfunnels are brand accounts. Genuine first-person posts are low-engagement: @mircea_sandu on X, and r/Affiliatemarketing 1x2ajuv (8 comments). 5 quotes shown (3 X, 2 Reddit). No qualifying r/marketing or r/Entrepreneur post was found.",
+      "evidence": [
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@ErnestoSOFTWARE",
+          "date": "2026-10-10T10:31-07:00",
+          "url": "https://x.com/ErnestoSOFTWARE/status/2108973670882304102",
+          "quote": "but until today, it was hard af \nto build out a web funnel. \n\nbecause all the tools were outdated\nand had to be built by hand.",
+          "engagement": {
+            "likes": 61,
+            "replies": 10,
+            "reposts": 2,
+            "quotes": 1,
+            "impressions": 9466
+          },
+          "note": "vendor/promo post (FunnelFox MCP announcement)",
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@Digistore24",
+          "date": "2026-10-02T09:00-07:00",
+          "url": "https://x.com/Digistore24/status/2106051590406938937",
+          "quote": "I used to spend eight hours building one funnel. I still needed a developer when it broke.",
+          "engagement": {
+            "likes": 2,
+            "replies": 0,
+            "reposts": 1,
+            "quotes": 0,
+            "impressions": 92
+          },
+          "note": "brand account (Digistore24) promo",
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "X",
+          "subreddit": null,
+          "author": "@mircea_sandu",
+          "date": "2026-10-02T07:40-07:00",
+          "url": "https://x.com/mircea_sandu/status/2106031471504855247",
+          "quote": "I still go through the funnel manually, making sure the pricing page and checkout actually works.",
+          "engagement": {
+            "likes": 1,
+            "replies": 1,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 61
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/Affiliatemarketing",
+          "author": "u/AggravatingIsopod883",
+          "date": "2026-10-10T02:00-07:00",
+          "url": "https://www.reddit.com/r/Affiliatemarketing/comments/1x2ajuv/how_do_you_track_which_affiliates_actually_make/",
+          "quote": "I can only track like half of what's happening because everything is scattered between dms, email, my notes app, and about the actual sales data, I don't even know which creators are posting consistently versus which ones were just a one time thing.",
+          "post_title": "How do you track which affiliates actually make money",
+          "engagement": {
+            "comments_visible_in_rss": 8,
+            "score": null
+          },
+          "quote_is_excerpt": true
+        },
+        {
+          "platform": "Reddit",
+          "subreddit": "r/SaaS",
+          "author": "u/Inletbase",
+          "date": "2026-10-13T04:29-07:00",
+          "url": "https://www.reddit.com/r/SaaS/comments/1x4u4kn/what_do_you_do_after_a_wordpress_form_sends_you_a/",
+          "quote": "Someone checks the inbox and replies manually The lead gets copied into a spreadsheet, CRM, or gets forgotten",
+          "post_title": "What do you do after a WordPress form sends you a notification email?",
+          "engagement": {
+            "comments_visible_in_rss": 2,
+            "score": null
+          },
+          "note": "framed as a research question by a vendor (Inletbase); describes the manual process",
+          "quote_is_excerpt": true
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Grok CLI is not signed in (needs 'grok login --device-code'), so the desk's standard Grok live search was not used.",
+    "Reddit upvote scores and exact comment counts could not be retrieved: the JSON API returned 403, old.reddit redirected to login, and the HTML is behind a JS challenge. Engagement uses comments visible in the RSS feed instead.",
+    "r/marketing produced no in-window post or comment that fit the three themes closely enough to quote. r/Entrepreneur gave one (AI babysitting) and r/Affiliatemarketing gave one (manual tracking). r/SaaS supplies most of the Reddit evidence.",
+    "The manual funnel building theme is mostly voiced by vendors and brands on X. Genuine first-person complaints were few and low-engagement, so rank 5 is the weakest-supported cluster.",
+    "The r/SaaS /new listing caps at about 1,000 posts, back to 4 Oct. Posts from 2-4 Oct were covered only through keyword search feeds, so recall for those days is lower.",
+    "X search is keyword-based and capped at 100 results per query, so recall is partial and the counts in why_ranked are minimums, not totals.",
+    "Excluded: @diegogarzam (2026-10-14, 'is someone still building their funnels by hand...') because it contains a slur. The @OmegaWhiteoid quote is excerpted to leave out a slur.",
+    "Images and videos attached to posts (e.g. @Akpanthankgod_, @Aryanpxcr7) were not inspected. Only the post text is quoted."
+  ]
+}

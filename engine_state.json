@@ -1,11 +1,13 @@
 {
   "project": "ARGON-01",
   "live_url": "https://karllange.github.io/argon-autonomous-engine/",
+  "lead_webhook_url": "https://script.google.com/macros/s/AKfycbz5eVdPbo46nwmhN6ZSu3p1kUIGoCfm0WNst6rmzAuJuQUHGVen95EIz9BNUC1hTJjB2A/exec",
   "business_unit": "STANDALONE_AUTONOMOUS_UNIT",
   "governance": "PERSONAL_ZERO_PHI",
   "deployment": {
     "github_repo_url": "https://github.com/karllange/argon-autonomous-engine",
-    "live_funnel_url": "https://karllange.github.io/argon-autonomous-engine/"
+    "live_funnel_url": "https://karllange.github.io/argon-autonomous-engine/",
+    "vault_access_url": "https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=bundle"
   },
   "agent_ownership": {
     "triage_and_handoff_router": {
@@ -56,8 +58,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "LIVE_WITH_RESEARCHY_INTEL_AND_PORTAL",
+    "current_status": "LIVE_WEBHOOK_ACTIVE_AWAITING_STRIPE",
     "action_required": "POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS_AND_LAUNCH_TRANCHE_1",
-    "last_agent_run": "OVERNIGHT_PHASE_2_5_RESEARCHY_SYNC"
+    "last_agent_run": "PHASE_2_6B_LIVE_WEBHOOK_AND_PAGES"
   }
 }
