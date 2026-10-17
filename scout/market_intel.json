@@ -2,8 +2,90 @@
   "schema_version": "1.0.0",
   "project": "ARGON-01",
   "governance": "PERSONAL_ZERO_PHI",
-  "generated_at_utc": "2026-10-17T04:51:00Z",
+  "generated_at_utc": "2026-10-17T05:30:00Z",
   "tranche_id": 1,
+  "researchy_injection": {
+    "owner": "Researchy",
+    "window_start": "2026-10-02",
+    "window_end": "2026-10-16",
+    "injected_at_utc": "2026-10-17T05:30:00Z",
+    "primary_hook_ids": ["RQ-01", "RQ-02", "RQ-03", "RQ-04"],
+    "deprioritized_hook_ids": ["RQ-05"]
+  },
+  "verified_complaints": [
+    {
+      "id": "RQ-01",
+      "priority": "primary",
+      "rank": 1,
+      "theme": "AI Babysitting",
+      "engagement": "highest",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "X",
+      "author": "@Anaya_sharma876",
+      "published_url": "https://x.com/Anaya_sharma876/status/2108401219161243754",
+      "verbatim_quote": "Then who fixes the mistakes it makes while fixing its mistakes?",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-02",
+      "priority": "primary",
+      "rank": 2,
+      "theme": "Ad Spend Burn",
+      "engagement": "top_r_saas_pain",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "Reddit / r/SaaS",
+      "author": "u/marketing_guy_37",
+      "published_url": "https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/",
+      "verbatim_quote": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-03",
+      "priority": "primary",
+      "rank": 3,
+      "theme": "Agent Drift / Babysitting",
+      "engagement": "verified",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "X",
+      "author": "@0xPaulvibe",
+      "published_url": "https://x.com/0xPaulvibe/status/2109545244593209480",
+      "verbatim_quote": "the more freedom I give an agent, the more time I spend fixing its mistakes.",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-04",
+      "priority": "primary",
+      "rank": 4,
+      "theme": "Clicks Without Conversions",
+      "engagement": "verified",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "Reddit / r/SaaS",
+      "author": "u/GimmeAByte0101",
+      "published_url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/",
+      "verbatim_quote": "15 Buy now clicks from Reddit ads, 0 sales: what am I missing?",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-05",
+      "priority": "deprioritized",
+      "rank": 5,
+      "theme": "Manual Funnel Friction",
+      "engagement": "low",
+      "flag": "vendor_noise",
+      "use_as_ad_hook": false,
+      "use_as_funnel_hook": false,
+      "source_surface": "X",
+      "author": "@ErnestoSOFTWARE",
+      "published_url": "https://x.com/ErnestoSOFTWARE/status/2108973670882304102",
+      "verbatim_quote": "it was hard af to build out a web funnel.",
+      "window": "2026-10-02/2026-10-16",
+      "depriority_reason": "Flagged as vendor noise. Do not lead ads, the live proof strip, or the nurture sequence with this quote."
+    }
+  ],
   "offer_alignment": {
     "core_offer": "The ARGON Turnkey Agent Vault ($97)",
     "order_bump": "Self-Healing Funnel Boilerplate + Embedded Affiliate Stack ($297)",
@@ -17,7 +99,12 @@
       "pain_point_id": "PAIN-01",
       "intensity_score": 9.6,
       "source_surface": "Reddit / r/SaaS & r/startups",
-      "verbatim_frustration": "I can ship a full-stack feature in a weekend, but the moment I open Meta Ads Manager I burn $400 on dead clicks because I don't know how to write hooks or watch ad sets 24/7.",
+      "verbatim_frustration": "Then who fixes the mistakes it makes while fixing its mistakes?",
+      "verbatim_source": {
+        "complaint_id": "RQ-01",
+        "author": "@Anaya_sharma876",
+        "url": "https://x.com/Anaya_sharma876/status/2108401219161243754"
+      },
       "failed_alternatives": [
         "Generic ChatGPT prompt packs",
         "Hiring cheap Fiverr ad managers",
@@ -32,7 +119,12 @@
       "pain_point_id": "PAIN-02",
       "intensity_score": 9.4,
       "source_surface": "X / Performance Marketing Threads & Ad Library",
-      "verbatim_frustration": "By the time I manually spy on ads, rewrite a bridge page, and set up tracking, the trend is already saturated—and letting one bad ad set run overnight wipes out a week of commissions.",
+      "verbatim_frustration": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "verbatim_source": {
+        "complaint_id": "RQ-02",
+        "author": "u/marketing_guy_37",
+        "url": "https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/"
+      },
       "failed_alternatives": [
         "$297/mo spy tools with no execution pipeline",
         "Bloated drag-and-drop page builders",
@@ -47,7 +139,12 @@
       "pain_point_id": "PAIN-03",
       "intensity_score": 9.3,
       "source_surface": "Reddit / r/agency & X Operator Communities",
-      "verbatim_frustration": "Our margins are getting crushed paying $4,000/mo copywriters and media buyers who still take 5 days to launch a simple landing page and 10 ad variations.",
+      "verbatim_frustration": "the more freedom I give an agent, the more time I spend fixing its mistakes.",
+      "verbatim_source": {
+        "complaint_id": "RQ-03",
+        "author": "@0xPaulvibe",
+        "url": "https://x.com/0xPaulvibe/status/2109545244593209480"
+      },
       "failed_alternatives": [
         "Fragile 25-step Zapier/Make zaps that break silently",
         "Bloated agency SOP docs nobody reads",
@@ -62,7 +159,12 @@
       "pain_point_id": "PAIN-04",
       "intensity_score": 9.1,
       "source_surface": "X / Creator Economy & Meta Ad Library (14+ Days Active)",
-      "verbatim_frustration": "Everyone is sick of buying $997 video courses they never finish. My cold traffic wants an executable system they can deploy today for under $100, or they don't buy at all.",
+      "verbatim_frustration": "15 Buy now clicks from Reddit ads, 0 sales: what am I missing?",
+      "verbatim_source": {
+        "complaint_id": "RQ-04",
+        "author": "u/GimmeAByte0101",
+        "url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/"
+      },
       "failed_alternatives": [
         "2-hour webinar funnels with 8% show-up rates",
         "Static PDF lead magnets nobody opens",
@@ -90,7 +192,9 @@
     {
       "angle_id": "ANGLE-01",
       "name": "The Verbatim Pain Mirror",
-      "psychological_driver": "Visceral recognition of wasted ad spend and broken AI prompt workflows"
+      "psychological_driver": "Visceral recognition of wasted ad spend and broken AI prompt workflows",
+      "lead_hook": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "source_complaint_ids": ["RQ-02", "RQ-01", "RQ-03", "RQ-04"]
     },
     {
       "angle_id": "ANGLE-02",

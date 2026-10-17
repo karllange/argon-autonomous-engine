@@ -1,41 +1,42 @@
 # Project ARGON (`ARGON-01`) — 5-Part Autonomous Nurture Sequence
 
-**Audience:** Operators who unlocked the Free 60-Second Niche & Ad Generator (`custom_market_intel.json`) and have not bought.  
+**Audience:** Operators who unlocked the Free 60-Second Niche & Ad Generator and have not bought.  
 **Source event:** `handleBlueprintOptIn` POST `{ email, niche, timestamp, utm_source }` → `LEAD_WEBHOOK_URL`.  
 **Live engine:** https://karllange.github.io/argon-autonomous-engine/  
-**Core offer:** The ARGON Turnkey Agent Vault — **$97** one-time.  
+**Intel:** Researchy, Oct 2–16, 2026. Primary quotes `RQ-01`–`RQ-04` only. `RQ-05` (“it was hard af to build out a web funnel.”) is vendor noise and is not used in this sequence.  
+**Core offer:** The ARGON Turnkey Agent Vault — **$97**.  
 **Upsell:** Self-Healing Funnel Boilerplate + Affiliate Stack — **$297**.  
-**Bundle (max AOV):** Vault + Boilerplate — **$394**.  
-**Sender voice:** Operator to operator. Short sentences. No fake countdown clocks.  
+**Bundle:** Vault + Boilerplate — **$394**.  
 **Merge fields:** `{{email}}`, `{{niche}}` (fallback: "your niche"), `{{utm_source}}`.
-
-Every CTA carries UTM tags so `controller/evaluate_funnel.py` can separate nurture clicks from paid tranche traffic.
 
 ---
 
-## Email 1 — Day 0 (send immediately after opt-in)
+## Email 1 — Day 0 (send immediately)
 
-**Subject:** Your 60-second ARGON blueprint is unlocked  
-**Preview:** The JSON is yours. Here is what to do with it in the next 10 minutes.
+**Subject:** “We spent $1,000 on Reddit Ads and got 0 users.”  
+**Preview:** Your generator blueprint is unlocked. This is the quote it was built to answer.
 
 **Body:**
 
 {{email}},
 
-You just ran the Free 60-Second Niche & Ad Generator for **{{niche}}**. The blueprint download is the same file the Scout node writes in production: three pain-point hooks and a 3-step funnel map.
+You ran the Free 60-Second Generator for **{{niche}}**. The JSON is yours.
 
-Use it today, in this order:
+The quote Researchy logged as the top r/SaaS pain this window (Oct 2–16):
 
-1. Open `custom_market_intel.json` and steal the hook you would actually run as an ad.
-2. Replay the live generator if the niche was too broad: https://karllange.github.io/argon-autonomous-engine/#hook-generator
-3. If the hooks are sharper than what you are running, the rest of the system is the **$97 ARGON Turnkey Agent Vault** — the Scout playbook, the Funnel Factory rules, and the ROAS controller spec.
+> “We spent $1,000 on Reddit Ads and got 0 users.”  
+> — u/marketing_guy_37  
+> https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/
 
-The generator is the front door. The Vault is the repo those hooks come from.
+That is why the live page exists. A $50 Python circuit breaker and a 4-loop funnel (Scout → page → kill-switch → 2.0x scale) so a test dies at $50 instead of becoming a $1,000 zero.
 
-**CTA:** Unlock the $97 Turnkey Agent Vault  
+Three more verified lines from the same scrape are on the page. Open them, then rerun your niche if the first pass was too broad.
+
+**CTA:** See the four quotes and rerun the generator  
+https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d0&utm_content=researchy_proof#market-proof
+
+**CTA:** $97 Turnkey Agent Vault  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d0&utm_content=vault_97#vault-offer
-
-You will get the files from the fulfillment portal the moment Stripe confirms payment.
 
 —
 
@@ -46,131 +47,124 @@ https://karllange.github.io/argon-autonomous-engine/
 
 ## Email 2 — Day 1
 
-**Subject:** The $400 you lose babysitting Ads Manager  
-**Preview:** Prompt packs do not watch the account at 2 AM. You do.
+**Subject:** Then who fixes the mistakes it makes while fixing its mistakes?  
+**Preview:** Highest-engagement line Researchy pulled off X, Oct 2–16.
 
 **Body:**
 
-Most operators who ran the generator yesterday are still the bottleneck this morning.
+@Anaya_sharma876 asked it in public, and it was the highest-engagement complaint in the window:
 
-The pattern we keep harvesting from founders in **{{niche}}**:
+> “Then who fixes the mistakes it makes while fixing its mistakes?”  
+> https://x.com/Anaya_sharma876/status/2108401219161243754
 
-> "I can ship a full-stack feature in a weekend, but the moment I open Ads Manager I burn $400 on dead clicks."
+@0xPaulvibe answered it from the other side of the same trap:
 
-A prompt pack cannot see spend. A 25-step Zap cannot kill an ad set. You close the laptop, and the losing campaign keeps spending because nobody coded a rule.
+> “the more freedom I give an agent, the more time I spend fixing its mistakes.”  
+> https://x.com/0xPaulvibe/status/2109545244593209480
 
-ARGON-01 is that rule, written down:
+More freedom without a state file is a promotion to cleanup crew. ARGON-01 keeps the agent inside `engine_state.json`: $100 in the tranche, $900 locked, and a hard stop at $50 with zero sales.
 
-- **$1,000** Cycle 1 pool
-- **$100** active tranche, **$900** locked in reserve
-- **$50** hard stop if sales are still zero
-- **2.0x ROAS** before another dollar comes out of reserve
+If **{{niche}}** still depends on you to notice the bad ad set, the agent is not running the account. The controller is.
 
-The free generator showed you the hooks. The controller is what stops the bleed.
-
-**CTA:** See the $97 Vault and the $50 kill-switch  
-https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d1&utm_content=kill_switch#vault-offer
-
-Re-run your niche first if you want fresh hooks:  
-https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d1&utm_content=generator#hook-generator
+**CTA:** Read both quotes on the live engine  
+https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d1&utm_content=babysitting#market-proof
 
 ---
 
 ## Email 3 — Day 2
 
-**Subject:** What is actually inside the $97 Vault  
-**Preview:** Three markdown specs. No video course. No retainer.
+**Subject:** 15 buy-now clicks. 0 sales. The $97 file that separates the leak.  
+**Preview:** u/GimmeAByte0101 named the symptom. The Vault is the diagnostic.
 
 **Body:**
 
-Here is the entire $97 ARGON Turnkey Agent Vault, with nothing padded in:
+Fourth verified line from Oct 2–16, r/SaaS:
 
-**Module 01 — Grok-Bot Scout Playbook**  
-Browser prompts and a 6-hour cadence that scrape Reddit, X, and ads active 14+ days into `market_intel.json`. This is the engine behind the generator you already used.
+> “15 Buy now clicks from Reddit ads, 0 sales: what am I missing?”  
+> — u/GimmeAByte0101  
+> https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/
 
-**Module 02 — Antigravity & Cursor Funnel Factory**  
-Drop-in `.cursor/rules` that ingest that JSON and compile a direct-response page plus a 10-ad matrix. The live page you opted in on was built this way:  
+Clicks are not the diagnosis. The $97 ARGON Turnkey Agent Vault is three specs and nothing else:
+
+**Module 01 — Grok-Bot Scout Playbook.** The same job Researchy just did: verbatim quotes, source URLs, a JSON file. You already felt the output in the free generator.
+
+**Module 02 — Antigravity & Cursor Funnel Factory.** Rules that turn `market_intel.json` into the page and the ads. The live page was built that way:  
 https://karllange.github.io/argon-autonomous-engine/
 
-**Module 03 — Self-Healing ROAS Controller Spec**  
-The decision tree: kill at $50 with 0 sales, rewrite hooks when CTR is under 1.2%, fix the hero when opt-in is under 15%, scale the tranche at 2.0x ROAS. Includes the zero-dependency Python evaluator.
+**Module 03 — Self-Healing ROAS Controller.** CTR under 1.2% rewrites the hook. Opt-in under 15% rewrites the hero. $50 and zero sales kills the ad set. 2.0x ROAS unlocks the next tranche.
 
-Standalone prices people quote for pieces of this stack run $497, $997, and $997. The Vault is **$97 once**. No subscription.
+Fifteen clicks and zero sales is a funnel leak. A thousand dollars and zero users is what happens when nobody codes the kill.
 
-If you only buy one file, buy this one and deploy Module 01 against **{{niche}}** tonight.
-
-**CTA:** Get the $97 Turnkey Agent Vault  
-https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d2&utm_content=modules#vault-offer
+**CTA:** Get the $97 Vault  
+https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d2&utm_content=vault_97#vault-offer
 
 ---
 
 ## Email 4 — Day 3
 
-**Subject:** Your hook worked. Your page might still be leaking.  
-**Preview:** CTR under 1.2% and opt-in under 15% are different failures.
+**Subject:** Four quotes. Two prices. One page.  
+**Preview:** $97 if you will wire it. $394 if you want the boilerplate the same day.
 
 **Body:**
 
-Day 3 is where operators usually blame "the ads" and kill a campaign that was one diagnostic away from working.
+Researchy’s primary set, in the order we are running them:
 
-The controller separates those failures on purpose:
+1. “Then who fixes the mistakes it makes while fixing its mistakes?” — @Anaya_sharma876
+2. “We spent $1,000 on Reddit Ads and got 0 users.” — u/marketing_guy_37
+3. “the more freedom I give an agent, the more time I spend fixing its mistakes.” — @0xPaulvibe
+4. “15 Buy now clicks from Reddit ads, 0 sales: what am I missing?” — u/GimmeAByte0101
 
-| Signal | What it means | What ARGON does |
-| :--- | :--- | :--- |
-| CTR under 1.2% | The hook never stopped the scroll | `REWRITE_HOOKS` from `market_intel.json` |
-| CTR is fine, opt-in under 15% | The hero is leaking | `OPTIMIZE_HERO_UI` — a contrarian variant is already built |
-| $50 spent, 0 sales | The offer and the traffic do not match | `KILL_OR_PIVOT` |
-| ROAS at or above 2.0x | The unit economics hold | `SCALE_TRANCHE` |
+All four are linked from the live proof strip:  
+https://karllange.github.io/argon-autonomous-engine/#market-proof
 
-You felt the first half of that loop when the generator wrote hooks for **{{niche}}**. The missing half is a page and a script that act on the numbers without a standup meeting.
+Two ways to install the answer for **{{niche}}**:
 
-Two ways to buy:
+- **$97 — Turnkey Agent Vault.** The specs and the state engine. You implement. Stripe returns you to `vault-access.html?tier=core`.
+- **$394 — Full Bundle.** Those specs plus the production funnel, the wired controller, and the affiliate stack. Stripe returns you to `vault-access.html?tier=bundle`.
 
-- **$97 — Turnkey Agent Vault.** The three specs and the state engine. You implement.
-- **$394 — Full Bundle.** The Vault plus the production funnel boilerplate, the wired controller, and the affiliate stack. You deploy.
+Core buyers can add the boilerplate later for **$297** from the upgrade card inside the portal. You do not pay $394 twice.
 
-Both land on the same fulfillment portal after Stripe. Core buyers can still add the boilerplate later for **$297**.
-
-**CTA:** Deploy the $97 Vault  
+**CTA — $97 Vault:**  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d3&utm_content=vault_97#vault-offer
 
-**CTA:** Take the $394 Bundle (Vault + Boilerplate)  
+**CTA — $394 Bundle:**  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d3&utm_content=bundle_394#vault-offer
 
 ---
 
 ## Email 5 — Day 4
 
-**Subject:** $97 to install the engine, or $394 to skip the build  
-**Preview:** Last note in this sequence. Pick a tier or stay on the free generator.
+**Subject:** Last note: $97, $394, or stay on the free generator  
+**Preview:** The $1,000 zero already happened to someone else this month.
 
 **Body:**
 
-This is the close of the five-day sequence. After this, we will not keep tapping you about the same decision.
+This is the last email in the sequence.
 
-You already have the free tool:
+The free generator stays up either way:
 
 https://karllange.github.io/argon-autonomous-engine/#hook-generator
 
-It will keep generating hooks for **{{niche}}**. It will not install the Scout cron, the funnel rules, or the $50 kill-switch. That is the product.
+It will keep writing hooks for **{{niche}}**. It will not install the $50 kill-switch. That is the product, and the last two weeks of public complaints are the reason it exists:
+
+- A buyer on X is still fixing the agent that is fixing itself.
+- A founder on r/SaaS already spent $1,000 and got 0 users.
+- Another gave the agent freedom and got a second job.
+- Another got 15 buy-now clicks and 0 sales.
 
 **Choose one:**
 
-1. **Stay on the free generator.** Rational if you are not spending on traffic yet.
-2. **$97 Turnkey Agent Vault.** Best if you want the specs and you will wire Stripe and the controller yourself. Success redirect: `vault-access.html?tier=core`.
-3. **$394 Full Bundle.** Best if you want the boilerplate and the affiliate stack in the same afternoon. That is the $97 Vault plus the $297 upgrade, paid once. Success redirect: `vault-access.html?tier=bundle`.
+1. **Stay on the free generator.** Right call if you are not spending on traffic yet.
+2. **$97 Vault.** The three specs. Success URL ends in `?tier=core`.
+3. **$394 Bundle.** Specs plus boilerplate and affiliate stack, paid once. Success URL ends in `?tier=bundle`.
 
-Core buyers who want the boilerplate later use the $297 upgrade card inside the portal. You do not pay $394 twice.
-
-The capital rule does not change either way: $100 in the test, $900 in reserve, dead ad sets die at $50.
+After checkout, the portal’s 15-minute checklist is the first thing to run. Ads Manager is not.
 
 **CTA — $97 Vault:**  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d4&utm_content=vault_97#vault-offer
 
 **CTA — $394 Bundle:**  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d4&utm_content=bundle_394#vault-offer
-
-If you buy, download from the portal and run the First 15 Minutes Quickstart before you touch Ads Manager.
 
 —
 
@@ -182,15 +176,15 @@ Governance: `PERSONAL_ZERO_PHI`
 
 ## ESP wiring notes
 
-| Day | Internal ID | Delay from opt-in | Primary goal |
-| :--- | :--- | :--- | :--- |
-| 0 | `ARGON-NURTURE-D0` | 0 minutes | Deliver the win, introduce the $97 Vault |
-| 1 | `ARGON-NURTURE-D1` | 1 day | Agitate babysitting / dead ad spend |
-| 2 | `ARGON-NURTURE-D2` | 2 days | Unpack the three Vault modules |
-| 3 | `ARGON-NURTURE-D3` | 3 days | Teach the diagnostic tree, offer both prices |
-| 4 | `ARGON-NURTURE-D4` | 4 days | Force the $97 vs $394 decision |
+| Day | Internal ID | Delay | Quote in the lead | Goal |
+| :--- | :--- | :--- | :--- | :--- |
+| 0 | `ARGON-NURTURE-D0` | 0 minutes | RQ-02, $1,000 / 0 users | Deliver the blueprint, open the proof strip |
+| 1 | `ARGON-NURTURE-D1` | 1 day | RQ-01 and RQ-03, babysitting | Agitate agent drift |
+| 2 | `ARGON-NURTURE-D2` | 2 days | RQ-04, 15 clicks / 0 sales | Unpack the $97 modules |
+| 3 | `ARGON-NURTURE-D3` | 3 days | RQ-01 through RQ-04 | Offer $97 and $394 |
+| 4 | `ARGON-NURTURE-D4` | 4 days | All four, decision close | Force the tier choice |
 
-- Suppress the rest of the sequence on `sales >= 1` for that email.
-- Core buyers who have not taken the $297 upgrade may receive Day 4's bundle block only; do not resend Day 0–3.
-- Map `utm_source` from the webhook onto the contact so paid (`omarketing`) and nurture replies stay distinct in telemetry.
-- Webhook field contract: `email`, `niche`, `timestamp` (ISO-8601), `utm_source` (empty string when the landing URL has no parameter).
+- Do not send `RQ-05`. It is flagged `vendor_noise` in `scout/market_intel.json`.
+- Suppress Day 1–4 when that email has `sales >= 1`.
+- Core buyers who skipped the $297 upgrade may receive the Day 4 bundle block only.
+- Webhook contract: `email`, `niche`, `timestamp` (ISO-8601), `utm_source` (empty string when the landing URL has none).
