@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARGON-01 Vault Access — Customer Fulfillment Portal</title>
+  <meta name="robots" content="noindex" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            argon: {
+              bg: '#05070B',
+              panel: '#0B0F17',
+              border: '#1B2436',
+              cyan: '#00F0FF',
+              emerald: '#10B981',
+              amber: '#F59E0B',
+              danger: '#EF4444'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    (function () {
+      var tier = (new URLSearchParams(window.location.search).get('tier') || '').toLowerCase();
+      document.documentElement.dataset.tier = (tier === 'core' || tier === 'bundle') ? tier : 'unprovisioned';
+    })();
+  </script>
+  <style>
+    body {
+      background-color: #05070B;
+      color: #E2E8F0;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(to right, rgba(27, 36, 54, 0.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(27, 36, 54, 0.22) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+    .cyber-glow {
+      box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.25), inset 0 0 15px -10px rgba(0, 240, 255, 0.2);
+    }
+    .emerald-glow {
+      box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.35);
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    html:not([data-tier="core"]) #upgrade-card { display: none; }
+    html[data-tier="unprovisioned"] #core-download,
+    html:not([data-tier="bundle"]) #bundle-download {
+      pointer-events: none;
+    }
+    #quickstart-list label > span,
+    #upgrade-card,
+    #unprovisioned-banner,
+    header .max-w-6xl {
+      min-width: 0;
+    }
+    code {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-argon-cyan selection:text-black min-h-screen flex flex-col">
+
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-argon-bg/90 border-b border-argon-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex h-2.5 w-2.5 rounded-full bg-argon-emerald animate-pulse-slow"></span>
+        <span class="text-argon-cyan font-semibold tracking-wider">ARGON-01 // VAULT ACCESS</span>
+        <span class="hidden sm:inline text-slate-500">|</span>
+        <span class="hidden sm:inline text-slate-300">FULFILLMENT PORTAL</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span id="tier-pill" class="px-2.5 py-1 rounded bg-slate-950 border border-argon-border text-argon-cyan">TIER: —</span>
+        <a href="./index.html" class="text-slate-400 hover:text-white transition">← Engine</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="pt-12 pb-8 lg:pt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-argon-panel border border-argon-border text-xs font-mono text-argon-cyan mb-5">
+          <span id="access-state">[STATE: VERIFYING TIER]</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight max-w-4xl">
+          Your ARGON deployment files are ready.
+        </h1>
+        <p id="access-lead" class="mt-4 text-lg text-slate-300 max-w-3xl leading-relaxed">
+          Stripe sends buyers here after payment. Core ($97) unlocks the Turnkey Agent Vault. Bundle ($394) also unlocks the Full Self-Healing Boilerplate.
+        </p>
+      </div>
+    </section>
+
+    <section class="pb-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <article class="bg-argon-panel border border-argon-emerald/40 rounded-2xl p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between font-mono text-xs mb-4">
+            <span class="px-2.5 py-1 rounded bg-argon-emerald/10 text-argon-emerald border border-argon-emerald/30">CORE · $97</span>
+            <span class="text-slate-400">INCLUDED IN BOTH TIERS</span>
+          </div>
+          <h2 class="text-2xl font-extrabold text-white">The ARGON Turnkey Agent Vault</h2>
+          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+            Modules 01–03: the Grok Scout playbook, the Antigravity &amp; Cursor Funnel Factory, and the Self-Healing ROAS Controller spec, packaged as a single zip.
+          </p>
+          <ul class="mt-5 space-y-2 text-xs font-mono text-slate-300">
+            <li class="flex gap-2"><span class="text-argon-emerald">✓</span> 01_Grok_Bot_Scout_Playbook.md</li>
+            <li class="flex gap-2"><span class="text-argon-emerald">✓</span> 02_Antigravity_Cursor_Funnel_Factory.md</li>
+            <li class="flex gap-2"><span class="text-argon-emerald">✓</span> 03_Self_Healing_Controller_Spec.md</li>
+          </ul>
+          <div class="mt-auto pt-6">
+            <a
+              id="core-download"
+              href="./downloads/ARGON_Turnkey_Agent_Vault_v1.zip"
+              download="ARGON_Turnkey_Agent_Vault_v1.zip"
+              class="inline-flex w-full items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-argon-emerald to-teal-400 text-slate-950 font-extrabold text-base emerald-glow hover:brightness-110 transition"
+            >
+              Download Turnkey Agent Vault (.zip)
+            </a>
+            <p id="core-lock-note" class="hidden mt-3 text-xs font-mono text-argon-amber">
+              Complete the $97 checkout to unlock this file. Stripe should return you with <span class="text-white">?tier=core</span>.
+            </p>
+          </div>
+        </article>
+
+        <article id="bundle-card" class="bg-argon-panel border border-argon-border rounded-2xl p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between font-mono text-xs mb-4">
+            <span class="px-2.5 py-1 rounded bg-argon-cyan/10 text-argon-cyan border border-argon-cyan/30">BUNDLE · $394</span>
+            <span id="bundle-status" class="text-slate-400">LOCKED</span>
+          </div>
+          <h2 class="text-2xl font-extrabold text-white">Full Self-Healing Boilerplate Bundle</h2>
+          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+            The $97 Vault plus the production funnel codebase, pre-wired <code class="text-argon-cyan font-mono">controller/evaluate_funnel.py</code>, and the embedded affiliate stack.
+          </p>
+          <ul class="mt-5 space-y-2 text-xs font-mono text-slate-300">
+            <li class="flex gap-2"><span class="text-argon-cyan">✓</span> Everything in the $97 Turnkey Vault</li>
+            <li class="flex gap-2"><span class="text-argon-cyan">✓</span> Dark-mode funnel HTML/JS boilerplate</li>
+            <li class="flex gap-2"><span class="text-argon-cyan">✓</span> ROAS controller + affiliate bridges</li>
+          </ul>
+          <div class="mt-auto pt-6">
+            <a
+              id="bundle-download"
+              href="./downloads/ARGON_Full_Boilerplate_Bundle_v1.zip"
+              download="ARGON_Full_Boilerplate_Bundle_v1.zip"
+              class="inline-flex w-full items-center justify-center gap-2 px-6 py-4 rounded-xl bg-argon-cyan text-slate-950 font-extrabold text-base hover:brightness-110 transition"
+            >
+              Download Full Boilerplate Bundle (.zip)
+            </a>
+            <p id="bundle-lock-note" class="mt-3 text-xs font-mono text-slate-400">
+              Unlocks when Stripe redirects with <span class="text-white">?tier=bundle</span> ($97 + $297).
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pb-10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <aside id="upgrade-card" class="rounded-2xl border-2 border-dashed border-argon-amber/70 bg-argon-amber/5 p-6 sm:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-argon-amber">ONE-TIME UPGRADE · CORE BUYERS</div>
+              <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">
+                Upgrade to the Full Self-Healing Boilerplate + Affiliate Stack ($297)
+              </h2>
+              <p class="mt-3 text-sm text-slate-300 max-w-2xl leading-relaxed">
+                You already own the three production specs. Add the exact funnel codebase, the armed controller script, and the affiliate bridges that monetize non-buyers — without rebuilding any of it by hand.
+              </p>
+              <p class="mt-2 text-xs font-mono text-slate-500">
+                After payment, Stripe should return you to <span class="text-slate-300">vault-access.html?tier=bundle</span>.
+              </p>
+            </div>
+            <a
+              id="upgrade-cta"
+              href="https://buy.stripe.com/test_argon_boilerplate_upsell_297"
+              class="shrink-0 inline-flex items-center justify-center px-6 py-4 rounded-xl bg-argon-amber text-slate-950 font-extrabold text-base hover:brightness-110 transition"
+            >
+              Upgrade for $297 →
+            </a>
+          </div>
+        </aside>
+
+        <div id="unprovisioned-banner" class="hidden mt-6 rounded-xl border border-argon-danger/40 bg-argon-danger/10 p-4 text-sm text-slate-200">
+          No tier was attached to this visit. Open the engine, complete checkout, and set the Stripe success URL to
+          <code class="text-argon-cyan font-mono">vault-access.html?tier=core</code> or
+          <code class="text-argon-cyan font-mono">vault-access.html?tier=bundle</code>.
+          <a href="./index.html#vault-offer" class="ml-1 underline text-white font-semibold">Return to checkout</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-argon-panel/90 border border-argon-border rounded-2xl p-6 sm:p-8 cyber-glow">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-argon-border">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-argon-cyan">OPERATOR ONBOARDING</div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">First 15 Minutes Quickstart Checklist</h2>
+              <p class="mt-2 text-sm text-slate-300 max-w-2xl">Five steps. Check them off as you go — progress stays in this browser.</p>
+            </div>
+            <div class="font-mono text-sm text-right">
+              <div id="progress-label" class="text-argon-emerald font-bold">0 of 5 complete</div>
+              <button type="button" id="reset-checklist" class="mt-1 text-xs text-slate-500 hover:text-white underline">Reset checklist</button>
+            </div>
+          </div>
+
+          <div class="mt-4 h-2 rounded-full bg-slate-950 border border-argon-border overflow-hidden" aria-hidden="true">
+            <div id="progress-bar" class="h-full w-0 bg-gradient-to-r from-argon-cyan to-argon-emerald transition-all duration-300"></div>
+          </div>
+
+          <ol id="quickstart-list" class="mt-6 space-y-3">
+            <li>
+              <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-argon-border cursor-pointer hover:border-argon-cyan/50 transition">
+                <input type="checkbox" data-step="1" class="mt-1 h-5 w-5 rounded border-argon-border bg-slate-950 text-argon-emerald focus:ring-argon-cyan cursor-pointer" />
+                <span>
+                  <span class="block text-xs font-mono text-argon-cyan">STEP 01 · MINUTE 0–2</span>
+                  <span class="block mt-1 font-bold text-white">Download the zip for your tier and unzip it into an empty project folder.</span>
+                  <span class="block mt-1 text-sm text-slate-400">Core buyers start with <code class="text-argon-cyan font-mono">ARGON_Turnkey_Agent_Vault_v1.zip</code>. Bundle buyers also unzip <code class="text-argon-cyan font-mono">ARGON_Full_Boilerplate_Bundle_v1.zip</code>.</span>
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-argon-border cursor-pointer hover:border-argon-cyan/50 transition">
+                <input type="checkbox" data-step="2" class="mt-1 h-5 w-5 rounded border-argon-border bg-slate-950 text-argon-emerald focus:ring-argon-cyan cursor-pointer" />
+                <span>
+                  <span class="block text-xs font-mono text-argon-cyan">STEP 02 · MINUTE 2–5</span>
+                  <span class="block mt-1 font-bold text-white">Open <code class="font-mono text-argon-cyan">engine_state.json</code> and confirm the capital guardrails.</span>
+                  <span class="block mt-1 text-sm text-slate-400">$1,000 pool · $100 active tranche · $900 reserve · $50 max spend with zero sales · 2.0x ROAS scale trigger. Core price $97, upsell $297.</span>
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-argon-border cursor-pointer hover:border-argon-cyan/50 transition">
+                <input type="checkbox" data-step="3" class="mt-1 h-5 w-5 rounded border-argon-border bg-slate-950 text-argon-emerald focus:ring-argon-cyan cursor-pointer" />
+                <span>
+                  <span class="block text-xs font-mono text-argon-cyan">STEP 03 · MINUTE 5–8</span>
+                  <span class="block mt-1 font-bold text-white">Run one Scout pass from Module 01 into <code class="font-mono text-argon-cyan">scout/market_intel.json</code>.</span>
+                  <span class="block mt-1 text-sm text-slate-400">Use <code class="font-mono">01_Grok_Bot_Scout_Playbook.md</code>. Harvest one niche’s buyer complaints before you write a single ad.</span>
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-argon-border cursor-pointer hover:border-argon-cyan/50 transition">
+                <input type="checkbox" data-step="4" class="mt-1 h-5 w-5 rounded border-argon-border bg-slate-950 text-argon-emerald focus:ring-argon-cyan cursor-pointer" />
+                <span>
+                  <span class="block text-xs font-mono text-argon-cyan">STEP 04 · MINUTE 8–12</span>
+                  <span class="block mt-1 font-bold text-white">Publish the funnel and point Stripe success URLs at this portal.</span>
+                  <span class="block mt-1 text-sm text-slate-400">Follow <code class="font-mono">02_Antigravity_Cursor_Funnel_Factory.md</code>. Core success URL ends in <code class="font-mono text-argon-cyan">?tier=core</code>. Bundle success URL ends in <code class="font-mono text-argon-cyan">?tier=bundle</code>.</span>
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-argon-border cursor-pointer hover:border-argon-cyan/50 transition">
+                <input type="checkbox" data-step="5" class="mt-1 h-5 w-5 rounded border-argon-border bg-slate-950 text-argon-emerald focus:ring-argon-cyan cursor-pointer" />
+                <span>
+                  <span class="block text-xs font-mono text-argon-cyan">STEP 05 · MINUTE 12–15</span>
+                  <span class="block mt-1 font-bold text-white">Arm the controller, then launch Tranche #1 inside the $50 circuit breaker.</span>
+                  <span class="block mt-1 text-sm text-slate-400">Run <code class="font-mono text-argon-cyan">python controller/evaluate_funnel.py</code>. Spend only the $100 tranche. Anything that hits $50 with 0 sales gets killed.</span>
+                </span>
+              </label>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-argon-border py-8 bg-argon-bg text-center text-xs font-mono text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>PROJECT ARGON (ARGON-01) // POST-PURCHASE FULFILLMENT</div>
+      <div>STATE GOVERNANCE: <span class="text-slate-300">PERSONAL_ZERO_PHI</span></div>
+    </div>
+  </footer>
+
+  <script>
+    var UPSELL_STRIPE_URL = "https://buy.stripe.com/test_argon_boilerplate_upsell_297";
+    var CHECKLIST_KEY = "argon01_quickstart_checklist_v1";
+    var STEP_COUNT = 5;
+
+    function readTier() {
+      var tier = (new URLSearchParams(window.location.search).get("tier") || "").toLowerCase();
+      if (tier === "core" || tier === "bundle") return tier;
+      return "unprovisioned";
+    }
+
+    function applyTier() {
+      var tier = readTier();
+      var pill = document.getElementById("tier-pill");
+      var state = document.getElementById("access-state");
+      var lead = document.getElementById("access-lead");
+      var bundleStatus = document.getElementById("bundle-status");
+      var bundleCard = document.getElementById("bundle-card");
+      var bundleLink = document.getElementById("bundle-download");
+      var bundleNote = document.getElementById("bundle-lock-note");
+      var coreLink = document.getElementById("core-download");
+      var coreNote = document.getElementById("core-lock-note");
+      var banner = document.getElementById("unprovisioned-banner");
+      var upgrade = document.getElementById("upgrade-cta");
+
+      upgrade.href = UPSELL_STRIPE_URL;
+      pill.textContent = "TIER: " + tier.toUpperCase();
+
+      if (tier === "bundle") {
+        state.textContent = "[STATE: BUNDLE UNLOCKED · $394]";
+        lead.textContent = "Both files are unlocked. Download the Turnkey Agent Vault and the Full Self-Healing Boilerplate, then run the 15-minute checklist below.";
+        bundleStatus.textContent = "UNLOCKED";
+        bundleStatus.className = "text-argon-emerald font-semibold";
+        bundleCard.classList.remove("border-argon-border");
+        bundleCard.classList.add("border-argon-cyan/60", "cyber-glow");
+        bundleLink.classList.remove("opacity-40", "cursor-not-allowed");
+        bundleNote.textContent = "One click. Saves ARGON_Full_Boilerplate_Bundle_v1.zip.";
+        coreNote.classList.add("hidden");
+        banner.classList.add("hidden");
+      } else if (tier === "core") {
+        state.textContent = "[STATE: CORE UNLOCKED · $97]";
+        lead.textContent = "The $97 Turnkey Agent Vault is unlocked. The $394 boilerplate bundle stays locked until you upgrade.";
+        bundleStatus.textContent = "LOCKED";
+        bundleLink.removeAttribute("href");
+        bundleLink.removeAttribute("download");
+        bundleLink.classList.add("opacity-40", "cursor-not-allowed");
+        bundleLink.setAttribute("aria-disabled", "true");
+        bundleLink.textContent = "Locked — upgrade to unlock the bundle";
+        bundleNote.textContent = "Included with ?tier=bundle after the $297 upgrade.";
+        coreNote.classList.add("hidden");
+        banner.classList.add("hidden");
+      } else {
+        state.textContent = "[STATE: AWAITING STRIPE TIER]";
+        lead.textContent = "This portal reads ?tier=core ($97) or ?tier=bundle ($394) from the Stripe success redirect.";
+        bundleStatus.textContent = "LOCKED";
+        bundleLink.removeAttribute("href");
+        bundleLink.removeAttribute("download");
+        bundleLink.classList.add("opacity-40", "cursor-not-allowed");
+        bundleLink.setAttribute("aria-disabled", "true");
+        coreLink.removeAttribute("href");
+        coreLink.removeAttribute("download");
+        coreLink.classList.add("opacity-40", "cursor-not-allowed");
+        coreLink.setAttribute("aria-disabled", "true");
+        coreLink.textContent = "Locked — finish $97 checkout";
+        coreNote.classList.remove("hidden");
+        banner.classList.remove("hidden");
+      }
+    }
+
+    function loadChecklist() {
+      try {
+        var raw = localStorage.getItem(CHECKLIST_KEY);
+        var parsed = raw ? JSON.parse(raw) : {};
+        return parsed && typeof parsed === "object" ? parsed : {};
+      } catch (err) {
+        return {};
+      }
+    }
+
+    function saveChecklist(state) {
+      try {
+        localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state));
+      } catch (err) {
+        // Private mode and blocked storage still leave the boxes usable this visit.
+      }
+    }
+
+    function renderProgress(state) {
+      var done = 0;
+      for (var i = 1; i <= STEP_COUNT; i += 1) {
+        if (state[String(i)]) done += 1;
+      }
+      document.getElementById("progress-label").textContent = done + " of " + STEP_COUNT + " complete";
+      document.getElementById("progress-bar").style.width = ((done / STEP_COUNT) * 100) + "%";
+    }
+
+    function paintChecklist(state) {
+      var boxes = document.querySelectorAll("#quickstart-list input[type=checkbox]");
+      boxes.forEach(function (box) {
+        var on = !!state[box.getAttribute("data-step")];
+        box.checked = on;
+        var card = box.closest("label");
+        card.classList.toggle("border-argon-emerald/50", on);
+        var title = card.querySelector(".font-bold");
+        if (title) title.classList.toggle("line-through", on);
+        if (title) title.classList.toggle("text-slate-400", on);
+        if (title) title.classList.toggle("text-white", !on);
+      });
+      renderProgress(state);
+    }
+
+    function bindChecklist() {
+      var state = loadChecklist();
+      paintChecklist(state);
+      document.getElementById("quickstart-list").addEventListener("change", function (event) {
+        var box = event.target;
+        if (!box || box.type !== "checkbox") return;
+        state[box.getAttribute("data-step")] = box.checked;
+        saveChecklist(state);
+        paintChecklist(state);
+      });
+      document.getElementById("reset-checklist").addEventListener("click", function () {
+        state = {};
+        saveChecklist(state);
+        paintChecklist(state);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      applyTier();
+      bindChecklist();
+    });
+  </script>
+</body>
+</html>

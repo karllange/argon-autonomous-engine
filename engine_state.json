@@ -1,5 +1,6 @@
 {
   "project": "ARGON-01",
+  "live_url": "https://karllange.github.io/argon-autonomous-engine/",
   "business_unit": "STANDALONE_AUTONOMOUS_UNIT",
   "governance": "PERSONAL_ZERO_PHI",
   "deployment": {
@@ -55,8 +56,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "LIVE_ON_GITHUB_PAGES_AWAITING_STRIPE",
-    "action_required": "CONNECT_STRIPE_LINKS_AND_LAUNCH_TRANCHE_1",
-    "last_agent_run": "PHASE_2_3_GITHUB_PAGES_LIVE"
+    "current_status": "LIVE_WITH_PORTAL_AND_NURTURE",
+    "action_required": "SET_LEAD_WEBHOOK_URL_AND_POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS",
+    "last_agent_run": "OVERNIGHT_PHASE_2_5"
   }
 }
