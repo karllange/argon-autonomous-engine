@@ -1,11 +1,42 @@
 {
   "project": "ARGON-01",
+  "business_unit": "STANDALONE_AUTONOMOUS_UNIT",
   "governance": "PERSONAL_ZERO_PHI",
+  "deployment": {
+    "github_repo_url": "https://github.com/karllange/argon-autonomous-engine",
+    "live_funnel_url": "https://karllange.github.io/argon-autonomous-engine/"
+  },
+  "agent_ownership": {
+    "triage_and_handoff_router": {
+      "owner": "Main Grok Dispatcher Bot",
+      "scope": "Sorts & routes only"
+    },
+    "loop_1_market_recon": {
+      "owner": "Researchy",
+      "scope": "Scrapes 14-day X/Reddit verbatim complaints & links -> scout/market_intel.json",
+      "target_artifact": "scout/market_intel.json"
+    },
+    "loop_2_and_4_factory_and_controller": {
+      "owner": "Google Antigravity / Cursor",
+      "scope": "Builds & optimizes conversion funnel and runs self-healing ROAS circuit breakers",
+      "target_artifacts": [
+        "funnel/index.html",
+        "controller/evaluate_funnel.py"
+      ]
+    },
+    "loop_3_traffic_and_distribution": {
+      "owner": "O Marketing",
+      "scope": "$100 capped tranches",
+      "target_artifact": "creatives/tranche_1_ads.md"
+    }
+  },
   "offer": {
     "name": "The ARGON Turnkey Agent Vault",
     "core_price_usd": 97,
     "upsell_price_usd": 297,
-    "target_revenue_cycle_1_usd": 2000
+    "target_revenue_cycle_1_usd": 2000,
+    "deliverable_zip": "vault_product/ARGON_Turnkey_Agent_Vault_v1.zip",
+    "upsell_bundle_zip": "vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip"
   },
   "capital_pool": {
     "starting_budget_usd": 1000,
@@ -24,8 +55,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "READY_FOR_DEPLOYMENT_AND_STRIPE",
-    "action_required": "CONNECT_STRIPE_AND_DEPLOY_PUBLIC_URL",
-    "last_agent_run": "PHASE_1_3_MARKET_INTEL_AND_TRANCHE_1_ADS"
+    "current_status": "LIVE_ON_GITHUB_PAGES_AWAITING_STRIPE",
+    "action_required": "CONNECT_STRIPE_LINKS_AND_LAUNCH_TRANCHE_1",
+    "last_agent_run": "PHASE_2_3_GITHUB_PAGES_LIVE"
   }
 }
