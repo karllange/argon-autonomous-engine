@@ -326,7 +326,7 @@
             <div>
               <div class="flex items-center justify-between font-mono text-xs mb-4">
                 <span class="px-2.5 py-1 rounded bg-argon-cyan/10 text-argon-cyan border border-argon-cyan/30">MODULE 01</span>
-                <span class="text-slate-400">01_Grok_Bot_Scout_Playbook.md</span>
+                <span class="text-slate-400 text-right break-all ml-3">01_Grok_Bot_Scout_Playbook.md</span>
               </div>
               <h3 class="text-xl font-bold text-white">
                 The Grok-Bot Scout Playbook
@@ -355,7 +355,7 @@
             <div>
               <div class="flex items-center justify-between font-mono text-xs mb-4">
                 <span class="px-2.5 py-1 rounded bg-argon-cyan/20 text-argon-cyan border border-argon-cyan/40">MODULE 02</span>
-                <span class="text-slate-400">02_Antigravity_Cursor_Funnel_Factory.md</span>
+                <span class="text-slate-400 text-right break-all ml-3">02_Antigravity_Cursor_Funnel_Factory.md</span>
               </div>
               <h3 class="text-xl font-bold text-white">
                 Antigravity &amp; Cursor Funnel Factory
@@ -381,7 +381,7 @@
             <div>
               <div class="flex items-center justify-between font-mono text-xs mb-4">
                 <span class="px-2.5 py-1 rounded bg-argon-cyan/10 text-argon-cyan border border-argon-cyan/30">MODULE 03</span>
-                <span class="text-slate-400">03_Self_Healing_Controller_Spec.md</span>
+                <span class="text-slate-400 text-right break-all ml-3">03_Self_Healing_Controller_Spec.md</span>
               </div>
               <h3 class="text-xl font-bold text-white">
                 Self-Healing ROAS Controller Spec
@@ -552,11 +552,20 @@
   <!-- VANILLA JS: AUTONOMOUS SCOUT SIMULATOR + DYNAMIC STRIPE CHECKOUT      -->
   <!-- ===================================================================== -->
   <script>
-    // Configurable Stripe Payment Links (Replace with live Stripe URLs in production)
+    // Configurable Stripe Payment Links (Replace with live Stripe URLs in production).
+    // Point each Payment Link's success URL at the fulfillment portal:
+    //   core  -> https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=core
+    //   bundle -> https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=bundle
     const STRIPE_PAYMENT_LINKS = {
       core_97: "https://buy.stripe.com/test_argon_core_vault_97",
       bundle_394: "https://buy.stripe.com/test_argon_vault_plus_boilerplate_394"
     };
+
+    // Lead capture endpoint for the Free 60-Second Generator opt-in.
+    // POST JSON: { email, niche, timestamp, utm_source }
+    // Leave "" until the ESP / Make / n8n webhook is live. An empty or failing
+    // endpoint never blocks the blueprint JSON download.
+    const LEAD_WEBHOOK_URL = "";
 
     const CORE_PRICE_USD = 97;
     const BUMP_PRICE_USD = 297;
@@ -715,7 +724,35 @@
 
     function handleBlueprintOptIn(event) {
       event.preventDefault();
+      const email = document.getElementById('optin-email').value.trim();
+      const niche = (document.getElementById('niche-input').value || '').trim();
+      const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';
+      const payload = {
+        email: email,
+        niche: niche,
+        timestamp: new Date().toISOString(),
+        utm_source: utmSource
+      };
+
+      // Unlock the blueprint immediately. Webhook delivery is non-blocking.
       document.getElementById('optin-success').classList.remove('hidden');
+
+      if (!LEAD_WEBHOOK_URL) {
+        return;
+      }
+
+      try {
+        fetch(LEAD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch(function () {
+          // Network, CORS, or endpoint failure must not block the JSON download.
+        });
+      } catch (err) {
+        // Invalid URL or runtime failure: custom_market_intel.json stays available.
+      }
     }
 
     function downloadGeneratedJson() {
