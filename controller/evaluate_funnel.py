@@ -18,6 +18,8 @@ from typing import Any, Dict, Tuple
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT_DIR / "engine_state.json"
+# Contrarian hero pre-built for RULE diagnostic 3 (action_required = OPTIMIZE_HERO_UI).
+HERO_VARIANT_B = "funnel/variant-b.html"
 
 
 def load_state(path: Path = STATE_FILE) -> Dict[str, Any]:
@@ -95,7 +97,8 @@ def evaluate_telemetry(state: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str,
         flags["action_required"] = "OPTIMIZE_HERO_UI"
         diagnosis = (
             f"FUNNEL LEAK: Opt-in rate is {opt_in_rate_pct:.2f}% (< 15.00% threshold across {clicks} clicks). "
-            "Optimize Hero headline and 60-Second Hook Generator UI."
+            "Optimize Hero headline and 60-Second Hook Generator UI. "
+            f"Pre-built contrarian hero is ready at {HERO_VARIANT_B} — promote it over funnel/index.html."
         )
     else:
         triggered_rule = "HEALTHY_MONITORING"
@@ -121,6 +124,7 @@ def evaluate_telemetry(state: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str,
         "diagnosis": diagnosis,
         "current_status": flags["current_status"],
         "action_required": flags["action_required"],
+        "hero_variant_b": HERO_VARIANT_B if flags.get("action_required") == "OPTIMIZE_HERO_UI" else None,
     }
     return state, metrics_summary
 
@@ -144,6 +148,8 @@ def print_diagnostic_report(state: Dict[str, Any], summary: Dict[str, Any]) -> N
     print(f"Triggered Rule      : {summary['triggered_rule']}")
     print(f"Current Status      : {summary['current_status']}")
     print(f"Action Required     : {summary['action_required']}")
+    if summary.get("hero_variant_b"):
+        print(f"Hero Variant Ready  : {summary['hero_variant_b']}")
     print(f"Diagnostic Summary  : {summary['diagnosis']}")
     print("=" * 74)
 
