@@ -58,8 +58,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "HOMEPAGE_MISSION_REWRITE",
+    "current_status": "HOMEPAGE_MISSION_REWRITE_PUBLISHED",
     "action_required": "ALIGN_TRANCHE_1_CREATIVES_TO_MISSION_VOICE_THEN_POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS",
-    "last_agent_run": "CURSOR_HOMEPAGE_MISSION_PIVOT: Replaced the turnkey telemetry homepage with a minimal hero and Why I Built This mission section. Checkout still opens from Get the Blueprint at $97 / $297."
+    "last_agent_run": "CURSOR_HOMEPAGE_MISSION_PIVOT: Synced clean mission-driven funnel/index.html to root index.html and automated gh-pages publishing so no legacy telemetry header or merge conflict remains."
   }
 }
