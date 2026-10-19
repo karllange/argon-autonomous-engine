@@ -39,7 +39,11 @@
     "upsell_price_usd": 297,
     "target_revenue_cycle_1_usd": 2000,
     "deliverable_zip": "vault_product/ARGON_Turnkey_Agent_Vault_v1.zip",
-    "upsell_bundle_zip": "vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip"
+    "upsell_bundle_zip": "vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip",
+    "stripe_payment_links": {
+      "core_97": "https://buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00",
+      "bundle_394": "https://buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01"
+    }
   },
   "capital_pool": {
     "starting_budget_usd": 1000,
@@ -58,8 +62,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "HOMEPAGE_MISSION_REWRITE_PUBLISHED",
-    "action_required": "ALIGN_TRANCHE_1_CREATIVES_TO_MISSION_VOICE_THEN_POINT_STRIPE_SUCCESS_TO_VAULT_ACCESS",
-    "last_agent_run": "CURSOR_HOMEPAGE_MISSION_PIVOT: Synced clean mission-driven funnel/index.html to root index.html and automated gh-pages publishing so no legacy telemetry header or merge conflict remains."
+    "current_status": "STRIPE_PAYMENT_LINKS_WIRED_READY_FOR_TRANCHE_1",
+    "action_required": "LAUNCH_TRANCHE_1_ADS_AND_MONITOR_ROAS_CIRCUIT_BREAKER",
+    "last_agent_run": "CURSOR_STRIPE_LINKS_WIRED: Wired Stripe Payment Links for core_97 (test_dRm14gfqDc9Nae1fBC5AQ00) and bundle_394 (test_00waEQdiv8XBgCpahi5AQ01) in funnel/index.html, index.html, and variant-b.html."
   }
 }
