@@ -1,0 +1,38 @@
+name: Sync Funnel to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync funnel assets to gh-pages branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git checkout "${GITHUB_SHA}" -- funnel engine_state.json
+          cp -f funnel/index.html index.html
+          cp -f funnel/variant-b.html variant-b.html
+          cp -f funnel/vault-access.html vault-access.html
+          rm -rf downloads
+          cp -r funnel/downloads downloads
+          git add index.html variant-b.html vault-access.html downloads funnel engine_state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "deploy(pages): sync funnel/index.html to root of gh-pages"
+            git push origin gh-pages
+          fi
