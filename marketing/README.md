@@ -8,5 +8,7 @@ Do not invent statistics. Leave a metric blank until someone records a real obse
 | --- | --- |
 | [funnel-qa.md](funnel-qa.md) | QA notes for the live pages: CTAs, checkout links, mobile layout |
 | [conversion-experiments.md](conversion-experiments.md) | Experiment log: hypothesis, change, result |
+| [b2b-ads-and-hooks.md](b2b-ads-and-hooks.md) | Organic posts, paid ads, and demo scripts for The Blueprint |
+| [vault-upsell-emails.md](vault-upsell-emails.md) | Five-day email sequence to `#vault-offer` |
 
 Funnel findings that should reach Gemini and Cursor Composer also go in `AI_HANDOFF.md` Section 2. Payment Links live in `config.js`. Live-mode links are blank until Karl pastes them.

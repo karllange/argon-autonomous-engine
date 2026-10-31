@@ -65,8 +65,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "FUNNEL_CONFIG_CENTRALIZED_AWAITING_LIVE_PAYMENT_LINKS",
-    "action_required": "KARL_PASTE_LIVE_STRIPE_PAYMENT_LINKS_AND_ROTATE_APPS_SCRIPT",
-    "last_agent_run": "GROK_BOT: Centralized public Payment Links in config.js, showed $97 on the first screen, restored #vault-offer, removed the Apps Script URL from client pages, and stopped publishing internal files on GitHub Pages. Live links are still blank."
+    "current_status": "MARKETING_COPY_DRAFTED_AWAITING_GEMINI_REVIEW",
+    "action_required": "GEMINI_COMPLIANCE_REVIEW_THEN_PING_KARL",
+    "last_agent_run": "GROK_BOT: Drafted marketing/b2b-ads-and-hooks.md and marketing/vault-upsell-emails.md from config.js and the homepage. No PR. Live Payment Links still blank."
   }
 }

@@ -37,6 +37,14 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-10-31 — Grok Bot — marketing copy drafted, no PR
+
+Branch `grok/argon-marketing-copy`. No pull request opened. Copy is waiting for the Gemini API compliance review before Karl is pinged.
+
+- Added the Copy rules section to `AGENTS.md`.
+- Drafted `marketing/b2b-ads-and-hooks.md` and `marketing/vault-upsell-emails.md` from `config.js` and the live homepage only. No new prices, stats, testimonials, refund terms, guarantees, or trials.
+- `config.js` `mode` is still `"sandbox"`. Live Payment Links are still blank.
+
 ### 2026-10-31 — Grok Bot — funnel fixes on `grok/fix-funnel-and-marketing`
 
 Local retest only. GitHub Pages still serves the previous deploy until this branch is merged. Playwright, headless Chrome, viewports 1440×900 and 390×844. Placeholder email `audit@example.com`. Pay was not clicked. No card data was entered.
