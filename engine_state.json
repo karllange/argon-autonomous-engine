@@ -1,0 +1,72 @@
+{
+  "project": "ARGON-01",
+  "live_url": "https://karllange.github.io/argon-autonomous-engine/",
+  "lead_webhook_url": "",
+  "business_unit": "STANDALONE_AUTONOMOUS_UNIT",
+  "governance": "PERSONAL_ZERO_PHI",
+  "deployment": {
+    "github_repo_url": "https://github.com/karllange/argon-autonomous-engine",
+    "live_funnel_url": "https://karllange.github.io/argon-autonomous-engine/",
+    "vault_access_url": ""
+  },
+  "agent_ownership": {
+    "triage_and_handoff_router": {
+      "owner": "Main Grok Dispatcher Bot",
+      "scope": "Sorts & routes only"
+    },
+    "loop_1_market_recon": {
+      "owner": "Researchy",
+      "scope": "Scrapes 14-day X/Reddit verbatim complaints & links -> scout/market_intel.json",
+      "target_artifact": "scout/market_intel.json"
+    },
+    "loop_2_and_4_factory_and_controller": {
+      "owner": "Google Antigravity / Cursor",
+      "scope": "Builds & optimizes conversion funnel and runs self-healing ROAS circuit breakers",
+      "target_artifacts": [
+        "funnel/index.html",
+        "controller/evaluate_funnel.py"
+      ]
+    },
+    "loop_3_traffic_and_distribution": {
+      "owner": "O Marketing",
+      "scope": "$100 capped tranches",
+      "target_artifact": "creatives/tranche_1_ads.md"
+    }
+  },
+  "offer": {
+    "name": "Early access waitlist",
+    "core_price_usd": 97,
+    "upsell_price_usd": 297,
+    "target_revenue_cycle_1_usd": 2000,
+    "deliverable_zip": "",
+    "upsell_bundle_zip": "",
+    "stripe_payment_links": {
+      "source": "config.js",
+      "mode": "sandbox",
+      "live_core_97": "",
+      "live_bundle_394": "",
+      "live_upsell_297": ""
+    }
+  },
+  "capital_pool": {
+    "starting_budget_usd": 1000,
+    "allocated_tranche_usd": 100,
+    "remaining_reserve_usd": 900,
+    "max_spend_without_sale_usd": 50,
+    "scale_roas_trigger": 2.0
+  },
+  "telemetry": {
+    "active_tranche": 1,
+    "spend_usd": 0,
+    "revenue_usd": 0,
+    "impressions": 0,
+    "clicks": 0,
+    "opt_ins": 0,
+    "sales": 0
+  },
+  "self_healing_flags": {
+    "current_status": "WAITLIST_MODE_KIT_DRAFT_NOT_ON_PAGES",
+    "action_required": "MAKE_REPO_PRIVATE_AND_ROTATE_WEBHOOK",
+    "last_agent_run": "GROK_BOT: Removed vault zips, vault-access, and variant-b. Homepage is a free waitlist. Fixed kit draft is in kit-draft and is not published."
+  }
+}

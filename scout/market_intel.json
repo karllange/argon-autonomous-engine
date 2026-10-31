@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ARGON-01",
+  "governance": "PERSONAL_ZERO_PHI",
+  "generated_at_utc": "2026-10-17T05:30:00Z",
+  "tranche_id": 1,
+  "researchy_injection": {
+    "owner": "Researchy",
+    "window_start": "2026-10-02",
+    "window_end": "2026-10-16",
+    "injected_at_utc": "2026-10-17T05:30:00Z",
+    "primary_hook_ids": ["RQ-01", "RQ-02", "RQ-03", "RQ-04"],
+    "deprioritized_hook_ids": ["RQ-05"]
+  },
+  "verified_complaints": [
+    {
+      "id": "RQ-01",
+      "priority": "primary",
+      "rank": 1,
+      "theme": "AI Babysitting",
+      "engagement": "highest",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "X",
+      "author": "@Anaya_sharma876",
+      "published_url": "https://x.com/Anaya_sharma876/status/2108401219161243754",
+      "verbatim_quote": "Then who fixes the mistakes it makes while fixing its mistakes?",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-02",
+      "priority": "primary",
+      "rank": 2,
+      "theme": "Ad Spend Burn",
+      "engagement": "top_r_saas_pain",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "Reddit / r/SaaS",
+      "author": "u/marketing_guy_37",
+      "published_url": "https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/",
+      "verbatim_quote": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-03",
+      "priority": "primary",
+      "rank": 3,
+      "theme": "Agent Drift / Babysitting",
+      "engagement": "verified",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "X",
+      "author": "@0xPaulvibe",
+      "published_url": "https://x.com/0xPaulvibe/status/2109545244593209480",
+      "verbatim_quote": "the more freedom I give an agent, the more time I spend fixing its mistakes.",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-04",
+      "priority": "primary",
+      "rank": 4,
+      "theme": "Clicks Without Conversions",
+      "engagement": "verified",
+      "use_as_ad_hook": true,
+      "use_as_funnel_hook": true,
+      "source_surface": "Reddit / r/SaaS",
+      "author": "u/GimmeAByte0101",
+      "published_url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/",
+      "verbatim_quote": "15 Buy now clicks from Reddit ads, 0 sales: what am I missing?",
+      "window": "2026-10-02/2026-10-16"
+    },
+    {
+      "id": "RQ-05",
+      "priority": "deprioritized",
+      "rank": 5,
+      "theme": "Manual Funnel Friction",
+      "engagement": "low",
+      "flag": "vendor_noise",
+      "use_as_ad_hook": false,
+      "use_as_funnel_hook": false,
+      "source_surface": "X",
+      "author": "@ErnestoSOFTWARE",
+      "published_url": "https://x.com/ErnestoSOFTWARE/status/2108973670882304102",
+      "verbatim_quote": "it was hard af to build out a web funnel.",
+      "window": "2026-10-02/2026-10-16",
+      "depriority_reason": "Flagged as vendor noise. Do not lead ads, the live proof strip, or the nurture sequence with this quote."
+    }
+  ],
+  "offer_alignment": {
+    "core_offer": "The ARGON Turnkey Agent Vault ($97)",
+    "order_bump": "Self-Healing Funnel Boilerplate + Embedded Affiliate Stack ($297)",
+    "lead_magnet_entry": "The 60-Second Autonomous Niche & Ad Angle Generator"
+  },
+  "audience_segments": [
+    {
+      "segment_id": "SEG-01",
+      "segment_name": "Solo Founders",
+      "primary_bottleneck": "Coding the product takes 100% of their bandwidth; marketing, ad testing, and copywriting get neglected or burned on emotional ad spend.",
+      "pain_point_id": "PAIN-01",
+      "intensity_score": 9.6,
+      "source_surface": "Reddit / r/SaaS & r/startups",
+      "verbatim_frustration": "Then who fixes the mistakes it makes while fixing its mistakes?",
+      "verbatim_source": {
+        "complaint_id": "RQ-01",
+        "author": "@Anaya_sharma876",
+        "url": "https://x.com/Anaya_sharma876/status/2108401219161243754"
+      },
+      "failed_alternatives": [
+        "Generic ChatGPT prompt packs",
+        "Hiring cheap Fiverr ad managers",
+        "Boosting posts without conversion tracking"
+      ],
+      "desired_autonomous_outcome": "A deterministic repo that scrapes buyer pain, compiles the landing page, and enforces a hard $50 zero-sale circuit breaker automatically."
+    },
+    {
+      "segment_id": "SEG-02",
+      "segment_name": "Affiliate Marketers",
+      "primary_bottleneck": "Offer fatigue and razor-thin margins when testing new angles manually; slow landing page spin-up kills campaign momentum.",
+      "pain_point_id": "PAIN-02",
+      "intensity_score": 9.4,
+      "source_surface": "X / Performance Marketing Threads & Ad Library",
+      "verbatim_frustration": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "verbatim_source": {
+        "complaint_id": "RQ-02",
+        "author": "u/marketing_guy_37",
+        "url": "https://www.reddit.com/r/SaaS/comments/1x01v2w/we_spent_1000_on_reddit_ads_and_got_0_users/"
+      },
+      "failed_alternatives": [
+        "$297/mo spy tools with no execution pipeline",
+        "Bloated drag-and-drop page builders",
+        "Manual spreadsheet ROAS tracking"
+      ],
+      "desired_autonomous_outcome": "60-second niche & hook generation paired with a self-healing 2.0x ROAS tranche snowball controller and embedded affiliate stack."
+    },
+    {
+      "segment_id": "SEG-03",
+      "segment_name": "Small Agency Owners",
+      "primary_bottleneck": "Client churn caused by slow creative turnaround, manual reporting, and junior media buyers letting client budgets bleed.",
+      "pain_point_id": "PAIN-03",
+      "intensity_score": 9.3,
+      "source_surface": "Reddit / r/agency & X Operator Communities",
+      "verbatim_frustration": "the more freedom I give an agent, the more time I spend fixing its mistakes.",
+      "verbatim_source": {
+        "complaint_id": "RQ-03",
+        "author": "@0xPaulvibe",
+        "url": "https://x.com/0xPaulvibe/status/2109545244593209480"
+      },
+      "failed_alternatives": [
+        "Fragile 25-step Zapier/Make zaps that break silently",
+        "Bloated agency SOP docs nobody reads",
+        "Hiring more junior account managers"
+      ],
+      "desired_autonomous_outcome": "Turnkey Antigravity & Cursor `.cursor/rules` that turn `market_intel.json` into a client-ready funnel + 10 ad creatives in one autonomous sprint."
+    },
+    {
+      "segment_id": "SEG-04",
+      "segment_name": "Info-Product Creators",
+      "primary_bottleneck": "Low front-end conversion rates (<1%) and inability to scale cold traffic profitably without a high-converting low-ticket vault + order bump.",
+      "pain_point_id": "PAIN-04",
+      "intensity_score": 9.1,
+      "source_surface": "X / Creator Economy & Meta Ad Library (14+ Days Active)",
+      "verbatim_frustration": "15 Buy now clicks from Reddit ads, 0 sales: what am I missing?",
+      "verbatim_source": {
+        "complaint_id": "RQ-04",
+        "author": "u/GimmeAByte0101",
+        "url": "https://www.reddit.com/r/SaaS/comments/1wzfapf/15_buy_now_clicks_from_reddit_ads_0_sales_what_am/"
+      },
+      "failed_alternatives": [
+        "2-hour webinar funnels with 8% show-up rates",
+        "Static PDF lead magnets nobody opens",
+        "Unstructured Notion prompt templates"
+      ],
+      "desired_autonomous_outcome": "An interactive 60-second free tool on the front end that seamlessly ascends leads into a $97 Turnkey Vault and $297 Order Bump."
+    },
+    {
+      "segment_id": "SEG-05",
+      "segment_name": "Local B2B Operators",
+      "primary_bottleneck": "Zero time to manage daily marketing operations and burned repeatedly by $3,000/mo retainers that deliver vanity impressions instead of booked revenue.",
+      "pain_point_id": "PAIN-05",
+      "intensity_score": 8.9,
+      "source_surface": "Reddit / r/entrepreneur & Small Business Forums",
+      "verbatim_frustration": "I got burned by three marketing agencies in a row charging $3k/month retainers just to send me a PDF report of 'impressions' while my phone didn't ring once.",
+      "failed_alternatives": [
+        "$3,000/mo retainer agencies",
+        "Complex CRM workflows that require a full-time admin",
+        "Set-and-forget Google/Meta smart campaigns"
+      ],
+      "desired_autonomous_outcome": "Emotionless capital protection ($100 active tranches, $900 locked reserve, $50 kill-switch) that proves ROI before unlocking another dollar."
+    }
+  ],
+  "synthesized_hook_angles": [
+    {
+      "angle_id": "ANGLE-01",
+      "name": "The Verbatim Pain Mirror",
+      "psychological_driver": "Visceral recognition of wasted ad spend and broken AI prompt workflows",
+      "lead_hook": "We spent $1,000 on Reddit Ads and got 0 users.",
+      "source_complaint_ids": ["RQ-02", "RQ-01", "RQ-03", "RQ-04"]
+    },
+    {
+      "angle_id": "ANGLE-02",
+      "name": "The $50 Kill-Switch & Tranche Math",
+      "psychological_driver": "Risk elimination and emotionless algorithmic capital preservation"
+    },
+    {
+      "angle_id": "ANGLE-03",
+      "name": "The 15-Minute Autonomous Sprint Reveal",
+      "psychological_driver": "Curiosity & mechanism proof (Grok Scout -> Cursor Funnel -> Python ROAS Controller)"
+    },
+    {
+      "angle_id": "ANGLE-04",
+      "name": "The $3,500/mo Agency Retainer Autopsy",
+      "psychological_driver": "Extreme value anchoring ($97 one-time vs thousands in monthly retainers)"
+    },
+    {
+      "angle_id": "ANGLE-05",
+      "name": "Interactive 60-Second Sandbox Challenge",
+      "psychological_driver": "Immediate gratification via the Free 60-Second Autonomous Niche & Ad Angle Generator"
+    }
+  ]
+}
