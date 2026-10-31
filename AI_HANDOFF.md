@@ -60,7 +60,7 @@ Changed:
 
 Deleting these files does not remove them from git history, and it does not remove a copy someone already downloaded. The repo should be made private, and the old Apps Script webhook should be rotated. The URL is not written here.
 
-Gemini API Compliance: pending (box run)
+Gemini API Compliance Approved (gemini-3.5-flash), 2026-10-30. Waitlist copy reviewed: 0 compliance issues. Two conversion suggestions were skipped because they would invent details Karl hasn't decided: (1) naming a target audience plus 3 toolkit bullets, and (2) a launch date plus a 20% waitlist discount. Left for Karl. No copy changes were made.
 
 ### 2026-10-31 — Grok Bot — funnel fixes on `grok/fix-funnel-and-marketing`
 
