@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The AI Wave is Here. Don't Get Left Behind.</title>
-  <meta name="description" content="A practical, step-by-step survival guide for everyday folks to build their own AI-driven revenue engines—no computer science degree required." />
+  <title>ARGON — Early access waitlist</title>
+  <meta name="description" content="The beginner-friendly AI and tech training and toolkit is being rebuilt. Joining the waitlist is free." />
   <meta name="theme-color" content="#F4F1EB" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560;9..144,620&family=Outfit:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --paper: #F4F1EB;
-      --paper-deep: #E4DCCE;
       --card: #FBFAF7;
       --ink: #1A1916;
       --ink-soft: #2E2C28;
       --mute: #5E594F;
       --line: #DDD6C8;
-      --serif: "Fraunces", "Iowan Old Style", Palatino, serif;
-      --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
-      --text: "Source Serif 4", Palatino, "Palatino Linotype", serif;
+      --serif: "Fraunces", Palatino, serif;
+      --sans: "Outfit", "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -33,73 +29,55 @@
       background: var(--paper);
       color: var(--ink);
       font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection {
-      background: #1A1916;
-      color: #F4F1EB;
+      line-height: 1.5;
     }
 
     a { color: inherit; }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(244, 241, 235, 0.9);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid transparent;
-    }
-
-    .site-header.is-scrolled { border-bottom-color: var(--line); }
-
-    .header-inner {
-      width: min(72rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      min-height: 4.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .wordmark {
-      font-family: var(--serif);
-      font-weight: 560;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-    }
-
+    .header-inner,
     .wrap {
       width: min(40rem, calc(100% - 2.5rem));
       margin: 0 auto;
     }
 
-    .wrap-hero {
-      width: min(48rem, calc(100% - 2.5rem));
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(244, 241, 235, 0.92);
+      backdrop-filter: blur(12px);
     }
 
-    .hero {
-      padding: 5.5rem 0 4.5rem;
+    .header-inner {
+      min-height: 4.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
+
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      text-decoration: none;
+    }
+
+    .hero { padding: 4.5rem 0 5rem; }
 
     h1 {
       margin: 0;
       font-family: var(--serif);
       font-weight: 560;
-      font-size: clamp(2.7rem, 7vw, 4.75rem);
-      line-height: 0.98;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.02;
       letter-spacing: -0.035em;
     }
 
-    .subhead {
-      margin: 1.6rem 0 0;
+    .lede {
+      margin: 1.25rem 0 0;
       max-width: 36rem;
-      font-family: var(--text);
-      font-size: clamp(1.15rem, 2vw, 1.35rem);
-      line-height: 1.55;
+      font-size: 1.15rem;
       color: var(--ink-soft);
     }
 
@@ -107,24 +85,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 48px;
+      margin-top: 1.75rem;
+      padding: 0.85rem 1.25rem;
       border: 0;
       border-radius: 999px;
       background: var(--ink);
       color: var(--paper);
-      font-family: var(--sans);
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      padding: 0.9rem 1.35rem;
+      font: inherit;
+      font-size: 0.98rem;
       cursor: pointer;
-      transition: transform 160ms ease, background 160ms ease;
     }
 
-    .btn:hover { background: #2C2A26; transform: translateY(-1px); }
-
     .btn:focus-visible,
-    .text-btn:focus-visible,
     .icon-btn:focus-visible,
     .field input:focus-visible {
       outline: 2px solid var(--ink);
@@ -132,136 +105,10 @@
     }
 
     .btn-small {
-      padding: 0.62rem 1rem;
-      font-size: 0.875rem;
-    }
-
-    .hero .btn { margin-top: 1.6rem; }
-
-    .price-flag {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin: 0 0 1.15rem;
-    }
-
-    .price-amount {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 3.4rem);
-      font-weight: 560;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
-    }
-
-    .price-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--mute);
-    }
-
-    .hero { padding: 3.4rem 0 3.6rem; }
-
-    #vault-offer { scroll-margin-top: 5.25rem; }
-
-    .offer-copy h2 { margin-bottom: 0.7rem; }
-
-    .offer-desc {
-      margin: 0;
-      max-width: 28rem;
-      font-family: var(--text);
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-
-    .offer-note {
-      margin: 0.7rem 0 0;
-      max-width: 28rem;
-      color: var(--mute);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .header-inner { flex-wrap: wrap; }
-
-    .btn-small { min-height: 44px; }
-
-    .mission {
-      padding: 1.5rem 0 6.5rem;
-    }
-
-    .kicker {
-      margin: 0 0 0.85rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--mute);
-    }
-
-    h2 {
-      margin: 0 0 1.75rem;
-      font-family: var(--serif);
-      font-weight: 560;
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .mission .wrap,
-    .close-inner {
-      width: min(48rem, calc(100% - 2.5rem));
-    }
-
-    .mission-copy {
-      max-width: 40rem;
-    }
-
-    .mission-copy p {
-      margin: 0 0 1.35rem;
-      font-family: var(--text);
-      font-size: 1.175rem;
-      line-height: 1.72;
-      color: var(--ink-soft);
-    }
-
-    .mission-copy p:last-child { margin-bottom: 0; }
-
-    .close {
-      background: var(--paper-deep);
-      padding: 4.5rem 0;
-    }
-
-    .close-inner {
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-    }
-
-    .close p {
-      margin: 0;
-      max-width: 22rem;
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 3vw, 1.85rem);
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-    }
-
-    .site-footer {
-      padding: 1.6rem 0 2rem;
-    }
-
-    .footer-inner {
-      width: min(72rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      color: var(--mute);
-      font-size: 0.8rem;
+      margin-top: 0;
+      min-height: 44px;
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
     }
 
     .modal {
@@ -274,289 +121,142 @@
       padding: 1.25rem;
       overflow-y: auto;
       background: rgba(26, 25, 22, 0.46);
-      backdrop-filter: blur(8px);
     }
 
     .modal.is-open { display: flex; }
 
     .modal-panel {
       position: relative;
-      width: min(34rem, 100%);
+      width: min(28rem, 100%);
       margin: auto;
+      padding: 1.75rem 1.5rem 1.5rem;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 1.25rem;
-      padding: 1.75rem 1.5rem 1.5rem;
-      box-shadow: 0 24px 60px rgba(26, 25, 22, 0.16);
     }
 
     .icon-btn {
       position: absolute;
-      top: 0.9rem;
-      right: 0.9rem;
-      width: 2rem;
-      height: 2rem;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 44px;
+      height: 44px;
       border: 0;
       border-radius: 999px;
       background: transparent;
       color: var(--mute);
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       cursor: pointer;
     }
 
-    .icon-btn:hover { color: var(--ink); background: var(--paper); }
-
-    .modal h3 {
-      margin: 0.35rem 2rem 0.4rem 0;
-      font-family: var(--serif);
-      font-weight: 560;
-      font-size: 1.85rem;
-      letter-spacing: -0.03em;
-    }
-
-    .modal .lede {
-      margin: 0 0 1.25rem;
-      color: var(--mute);
-      font-size: 0.95rem;
-    }
-
-    .summary {
-      border: 1px solid var(--line);
-      border-radius: 0.9rem;
-      padding: 0.9rem 1rem;
-      background: var(--paper);
-    }
-
-    .line {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: baseline;
-    }
-
-    .line strong { font-weight: 600; }
-
-    .line span,
-    .line small {
-      color: var(--mute);
-      font-size: 0.8rem;
-    }
-
-    .price { font-variant-numeric: tabular-nums; font-weight: 600; }
-
-    .bump-line {
-      display: none;
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .bump-line.is-on { display: flex; }
-
-    .total {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-top: 0.85rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--line);
-      font-weight: 600;
-    }
-
-    #checkout-total-amount {
+    .modal h2 {
+      margin: 0 2.5rem 0.4rem 0;
       font-family: var(--serif);
       font-size: 1.7rem;
+      font-weight: 560;
       letter-spacing: -0.03em;
     }
 
-    .bump {
-      margin-top: 0.9rem;
-      border: 1px solid var(--line);
-      border-radius: 0.9rem;
-      padding: 0.9rem 1rem;
-    }
+    .modal p { margin: 0; color: var(--mute); }
 
-    .bump label {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      cursor: pointer;
-    }
-
-    .bump input {
-      margin-top: 0.2rem;
-      width: 1rem;
-      height: 1rem;
-      accent-color: var(--ink);
-    }
-
-    .bump p {
-      margin: 0.35rem 0 0;
-      color: var(--mute);
-      font-size: 0.85rem;
-      line-height: 1.45;
-    }
-
-    .field { margin-top: 1rem; }
+    .field { margin-top: 1.1rem; }
 
     .field label {
       display: block;
       margin-bottom: 0.4rem;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--mute);
     }
 
     .field input {
       width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 0.9rem;
       border: 1px solid var(--line);
-      background: #fff;
       border-radius: 0.75rem;
-      padding: 0.8rem 0.9rem;
+      background: #fff;
       font: inherit;
       color: var(--ink);
     }
 
-    .modal .btn { width: 100%; margin-top: 0.85rem; }
+    .modal .btn { width: 100%; }
 
     .notice {
-      display: none;
-      margin-top: 0.8rem;
-      padding: 0.75rem 0.85rem;
-      border-radius: 0.75rem;
-      background: var(--paper);
+      margin-top: 0.85rem;
       color: var(--ink-soft);
-      font-size: 0.82rem;
-      line-height: 1.45;
-      word-break: break-word;
+      font-size: 0.95rem;
     }
 
-    .notice.is-on { display: block; }
+    .confirm {
+      margin-top: 1.1rem;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
 
-    .notice a { color: var(--ink); }
+    .site-footer {
+      padding: 0 0 3rem;
+      color: var(--mute);
+      font-size: 0.95rem;
+    }
+
+    .site-footer p { margin: 0.35rem 0; }
+
+    .site-footer a { text-decoration: underline; }
 
     @media (max-width: 700px) {
-      h1 br { display: none; }
-      .hero { padding-top: 2.4rem; }
-      .close-inner { align-items: flex-start; }
-      .footer-inner { flex-direction: column; }
+      .hero { padding-top: 2.75rem; }
       .btn-small { white-space: normal; text-align: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .btn { transition: none; }
-      .btn:hover { transform: none; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" id="site-header">
+  <header class="site-header">
     <div class="header-inner">
       <a class="wordmark" href="#top">ARGON</a>
-      <button class="btn btn-small" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
+      <button class="btn btn-small" type="button" data-open-waitlist>Join the Early Access Waitlist</button>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="wrap wrap-hero">
-        <p class="price-flag"><span class="price-amount" data-price="core">$97</span> <span class="price-name">The Blueprint</span></p>
-        <h1 id="hero-heading">The AI Wave is Here. <br />Don't Get Left Behind.</h1>
-        <p class="subhead">The practical guide to building your own AI-driven revenue engine.</p>
-        <button class="btn" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
-      </div>
-    </section>
-
-    <section class="mission" id="mission" aria-labelledby="mission-heading">
+    <section class="hero" id="vault-offer" aria-labelledby="waitlist-heading">
       <div class="wrap">
-        <p class="kicker">Why I Built This</p>
-        <h2 id="mission-heading">The $300/Month Empire</h2>
-        <div class="mission-copy">
-          <p>We are on the precipice of a gigantic change in society. For the first time in history, you don't need venture capital, a computer science degree, or a massive corporate team to bring your ideas to life.</p>
-          <p>My passion project is simple: I want to share the exact blueprint I use so that more people can unlock the ideas in their heads and actualize their own inventions, apps, and solutions. I want us to become an entrepreneurial society again. A society where we aren't all forced to work for large conglomerates, but where everyday people can build their own businesses with almost zero friction.</p>
-          <p>It is incredibly exciting, invigorating, and honestly, a little addicting once you realize what you are capable of. For less than $300 a month in AI tools, you have more power, leverage, and creative capacity at your fingertips than any generation before us.</p>
-          <p>This isn't a gatekept system for Silicon Valley elites. This is for the average Joe who is smart enough to see the shift happening and refuses to be left behind. I learned how to do this in six months. Let me show you how to do it in days.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="close" id="vault-offer" aria-labelledby="vault-offer-heading">
-      <div class="close-inner">
-        <div class="offer-copy">
-          <p class="kicker">The offer</p>
-          <h2 id="vault-offer-heading">The Blueprint — <span data-price="core">$97</span></h2>
-          <p class="offer-desc">The practical guide to building your own AI-driven revenue engine.</p>
-          <p class="offer-note">Optional at checkout: Build kit for $297. Together, $394.</p>
-        </div>
-        <button class="btn" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
+        <h1 id="waitlist-heading">Training and toolkit, in progress</h1>
+        <p class="lede">The beginner-friendly AI and tech training and toolkit is being rebuilt. Joining the waitlist is free.</p>
+        <button class="btn" type="button" data-open-waitlist>Join the Early Access Waitlist</button>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <span>ARGON</span>
-      <span>A blueprint for everyday builders.</span>
+    <div class="wrap">
+      <p>Questions? Contact <a id="support-email" href="mailto:karl@redoxhealthrevolution.com">karl@redoxhealthrevolution.com</a></p>
+      <p>Digital product and waitlist terms apply.</p>
     </div>
   </footer>
 
   <div
-    id="checkout-modal"
+    id="waitlist-modal"
     class="modal"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="checkout-modal-title"
-    onclick="closeCheckoutOnBackdrop(event)"
+    aria-labelledby="waitlist-modal-title"
+    aria-describedby="waitlist-modal-desc"
   >
     <div class="modal-panel">
-      <button class="icon-btn" type="button" onclick="closeCheckoutModal()" aria-label="Close">×</button>
-      <p class="kicker">The blueprint</p>
-      <h3 id="checkout-modal-title">Get the Blueprint</h3>
-      <p class="lede">One-time access, sent to your email.</p>
+      <button class="icon-btn" type="button" id="waitlist-close" aria-label="Close">×</button>
+      <h2 id="waitlist-modal-title">Join the waitlist</h2>
+      <p id="waitlist-modal-desc">Email only. We will write when the new training and toolkit launches.</p>
 
-      <div class="summary">
-        <div class="line">
-          <div>
-            <strong>The Blueprint</strong><br />
-            <small>The practical guide to building your own AI-driven revenue engine.</small>
-          </div>
-          <div class="price">$97.00</div>
-        </div>
-
-        <div id="bump-line-item" class="line bump-line">
-          <div>
-            <strong>Build kit</strong><br />
-            <small>The working funnel, controller, and affiliate bridges.</small>
-          </div>
-          <div class="price">$297.00</div>
-        </div>
-
-        <div class="total">
-          <span>Total</span>
-          <span id="checkout-total-amount">$97.00</span>
-        </div>
-      </div>
-
-      <div class="bump">
-        <label for="order-bump-checkbox">
-          <input id="order-bump-checkbox" type="checkbox" onchange="toggleOrderBump()" />
-          <div>
-            <strong>Add the build kit for $297</strong>
-            <p>The page, the checkout, and the scripts behind this site — so you can start from a working example instead of a blank folder.</p>
-          </div>
-        </label>
-      </div>
-
-      <form onsubmit="proceedToStripeCheckout(event)">
+      <form id="waitlist-form">
         <div class="field">
-          <label for="checkout-email">Email</label>
-          <input id="checkout-email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          <label for="waitlist-email">Email</label>
+          <input id="waitlist-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
         </div>
-        <button id="stripe-submit-btn" class="btn" type="submit">
-          <span id="stripe-btn-label">Continue — $97.00</span>
-        </button>
-        <div id="checkout-redirect-notice" class="notice" role="status"></div>
+        <button class="btn" type="submit">Join the Early Access Waitlist</button>
+        <p id="waitlist-notice" class="notice" role="status"></p>
       </form>
+
+      <p id="waitlist-confirm" class="confirm" role="status" hidden></p>
     </div>
   </div>
 
@@ -567,111 +267,96 @@
     })();
   </script>
   <script>
-    // Payment Links come from config.js.
-    // Point each Payment Link success URL at the fulfillment portal:
-    //   core   -> vault-access.html?tier=core
-    //   bundle -> vault-access.html?tier=bundle
-    function cfg() {
-      if (!window.ARGON_CONFIG) {
-        throw new Error("config.js did not load");
-      }
-      return window.ARGON_CONFIG;
-    }
+    (function () {
+      var modal = document.getElementById("waitlist-modal");
+      var form = document.getElementById("waitlist-form");
+      var emailInput = document.getElementById("waitlist-email");
+      var notice = document.getElementById("waitlist-notice");
+      var confirm = document.getElementById("waitlist-confirm");
+      var closeBtn = document.getElementById("waitlist-close");
+      var lastTrigger = null;
+      var retryMessage = "We couldn't add you just now. Your email is still here. Please try again.";
+      var support = document.getElementById("support-email");
+      try {
+        var supportEmail = (window.ARGON_CONFIG && window.ARGON_CONFIG.SUPPORT_EMAIL) || "";
+        if (support && supportEmail) {
+          support.textContent = supportEmail;
+          support.href = "mailto:" + supportEmail;
+        }
+      } catch (err) {}
 
-    function applyOfferCopy() {
-      var c = cfg();
-      var label = c.primaryCta();
-      document.querySelectorAll("[data-cta='primary']").forEach(function (el) {
-        el.textContent = label;
-      });
-      document.querySelectorAll("[data-price='core']").forEach(function (el) {
-        el.textContent = "$" + c.prices.coreUsd;
-      });
-    }
-
-    function openCheckoutModal() {
-      const modal = document.getElementById("checkout-modal");
-      modal.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-      updateCheckoutTotalUI();
-      const email = document.getElementById("checkout-email");
-      if (email) email.focus();
-    }
-
-    function closeCheckoutModal() {
-      const modal = document.getElementById("checkout-modal");
-      modal.classList.remove("is-open");
-      document.body.style.overflow = "";
-    }
-
-    function closeCheckoutOnBackdrop(event) {
-      if (event.target.id === "checkout-modal") closeCheckoutModal();
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeCheckoutModal();
-    });
-
-    function toggleOrderBump() {
-      updateCheckoutTotalUI();
-    }
-
-    function updateCheckoutTotalUI() {
-      var c = cfg();
-      var bumpChecked = document.getElementById("order-bump-checkbox").checked;
-      var bumpLineItem = document.getElementById("bump-line-item");
-      var totalEl = document.getElementById("checkout-total-amount");
-      var btnLabel = document.getElementById("stripe-btn-label");
-      var total = bumpChecked ? c.prices.coreUsd + c.prices.bumpUsd : c.prices.coreUsd;
-
-      bumpLineItem.classList.toggle("is-on", bumpChecked);
-      totalEl.textContent = "$" + total + ".00";
-      btnLabel.textContent = "Continue — $" + total + ".00";
-    }
-
-    function proceedToStripeCheckout(event) {
-      event.preventDefault();
-      var c = cfg();
-      var bumpChecked = document.getElementById("order-bump-checkbox").checked;
-      var email = document.getElementById("checkout-email").value.trim();
-      var key = bumpChecked ? "bundle394" : "core97";
-      var targetStripeUrl = c.checkoutUrl(key, email);
-      var total = bumpChecked ? c.prices.coreUsd + c.prices.bumpUsd : c.prices.coreUsd;
-      var notice = document.getElementById("checkout-redirect-notice");
-      var timestamp = new Date().toISOString();
-      var utm_source = new URLSearchParams(window.location.search).get("utm_source") || "";
-      var webhook = (c.leadWebhookUrl || "").trim();
-
-      notice.classList.add("is-on");
-      if (!targetStripeUrl) {
-        notice.textContent = "Checkout link is not set. Add the live Payment Link in config.js before sending buyers to Stripe.";
-        return;
+      function openModal(trigger) {
+        lastTrigger = trigger || document.activeElement;
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        emailInput.focus();
       }
 
-      if (webhook) {
+      function closeModal() {
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (lastTrigger && typeof lastTrigger.focus === "function") lastTrigger.focus();
+      }
+
+      document.querySelectorAll("[data-open-waitlist]").forEach(function (button) {
+        button.addEventListener("click", function () { openModal(button); });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        notice.textContent = "";
+        var email = emailInput.value.trim();
+        var webhook = "";
         try {
-          fetch(webhook, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify({ email: email, niche: "homepage-blueprint", timestamp: timestamp, utm_source: utm_source }),
-            keepalive: true
-          }).catch(function () {});
-        } catch (err) {}
-      }
+          webhook = ((window.ARGON_CONFIG && window.ARGON_CONFIG.leadWebhookUrl) || "").trim();
+        } catch (err) {
+          webhook = "";
+        }
 
-      notice.innerHTML = "Opening checkout for <strong>" + email + "</strong> ($" + total + ".00). <a href=\"" + targetStripeUrl + "\" target=\"_blank\" rel=\"noopener\">Continue if nothing opens.</a>";
+        if (!webhook) {
+          notice.textContent = retryMessage;
+          emailInput.focus();
+          return;
+        }
 
-      setTimeout(function () {
-        window.open(targetStripeUrl, "_blank");
-      }, 600);
-    }
+        var utmSource = "";
+        try {
+          utmSource = new URLSearchParams(window.location.search).get("utm_source") || "";
+        } catch (err) {
+          utmSource = "";
+        }
 
-    applyOfferCopy();
-
-    window.addEventListener("scroll", function () {
-      document.getElementById("site-header").classList.toggle("is-scrolled", window.scrollY > 8);
-    }, { passive: true });
+        fetch(webhook, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({
+            email: email,
+            niche: "early-access-waitlist",
+            timestamp: new Date().toISOString(),
+            utm_source: utmSource
+          }),
+          keepalive: true
+        }).then(function () {
+          form.hidden = true;
+          confirm.hidden = false;
+          confirm.textContent = "You're on the list! We'll notify you when the new training & toolkit launches";
+        }).catch(function () {
+          notice.textContent = retryMessage;
+          emailInput.focus();
+        });
+      });
+    })();
   </script>
 </body>
 </html>

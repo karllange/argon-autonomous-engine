@@ -23,8 +23,8 @@
   var sandbox = {
     core97: "https://buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00",
     bundle394: "https://buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01",
-    // The old vault-access placeholder returned HTTP 403. Left blank so the
-    // page does not send buyers there. Karl pastes a real link under live.upsell297.
+    // Unused while the site is a waitlist. Karl pastes a real link under live.upsell297
+    // only if checkout returns. Leave blank until then.
     upsell297: ""
   };
 
@@ -47,6 +47,7 @@
       sandbox: sandbox
     },
     leadWebhookUrl: "",
+    SUPPORT_EMAIL: "karl@redoxhealthrevolution.com",
 
     activeLinks: function () {
       return this.mode === "live" ? this.paymentLinks.live : this.paymentLinks.sandbox;

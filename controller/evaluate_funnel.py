@@ -18,8 +18,8 @@ from typing import Any, Dict, Tuple
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT_DIR / "engine_state.json"
-# Contrarian hero pre-built for RULE diagnostic 3 (action_required = OPTIMIZE_HERO_UI).
-HERO_VARIANT_B = "funnel/variant-b.html"
+# Variant B was removed. Do not point operators at a missing page.
+HERO_VARIANT_B = None
 
 
 def load_state(path: Path = STATE_FILE) -> Dict[str, Any]:
@@ -97,8 +97,7 @@ def evaluate_telemetry(state: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str,
         flags["action_required"] = "OPTIMIZE_HERO_UI"
         diagnosis = (
             f"FUNNEL LEAK: Opt-in rate is {opt_in_rate_pct:.2f}% (< 15.00% threshold across {clicks} clicks). "
-            "Optimize Hero headline and 60-Second Hook Generator UI. "
-            f"Pre-built contrarian hero is ready at {HERO_VARIANT_B} — promote it over funnel/index.html."
+            "The homepage is a free waitlist. There is no variant B page to promote."
         )
     else:
         triggered_rule = "HEALTHY_MONITORING"

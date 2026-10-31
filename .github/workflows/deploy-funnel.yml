@@ -19,9 +19,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Publish only the public funnel. Internal files stay in the git repo
-      # and are removed from gh-pages if an earlier deploy put them there.
-      # Public: config.js, the three HTML pages, and the download zips.
+      # Publish the waitlist only. A full replace of gh-pages drops
+      # vault-access, variant-b, and the zip downloads on the next deploy.
+      # Public: config.js and the homepage.
       # Not public: engine_state.json, AGENTS.md, AI_HANDOFF.md, marketing/,
       # controller/, scout/, creatives/, vault_product/, .cursor/, market intel.
       - name: Publish public funnel files only
@@ -31,16 +31,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           STAGE="$(mktemp -d)"
-          mkdir -p "$STAGE/funnel/downloads" "$STAGE/downloads"
+          mkdir -p "$STAGE/funnel"
           cp -f config.js "$STAGE/config.js"
           cp -f funnel/index.html "$STAGE/funnel/index.html"
-          cp -f funnel/variant-b.html "$STAGE/funnel/variant-b.html"
-          cp -f funnel/vault-access.html "$STAGE/funnel/vault-access.html"
-          cp -a funnel/downloads/. "$STAGE/funnel/downloads/"
           cp -f funnel/index.html "$STAGE/index.html"
-          cp -f funnel/variant-b.html "$STAGE/variant-b.html"
-          cp -f funnel/vault-access.html "$STAGE/vault-access.html"
-          cp -a funnel/downloads/. "$STAGE/downloads/"
+          cp -f robots.txt "$STAGE/robots.txt"
           touch "$STAGE/.nojekyll"
 
           git fetch origin gh-pages
