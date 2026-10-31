@@ -33,7 +33,7 @@ That is why the live page exists. A $50 Python circuit breaker and a 4-loop funn
 Three more verified lines from the same scrape are on the page. Open them, then rerun your niche if the first pass was too broad.
 
 **CTA:** See the four quotes and rerun the generator  
-https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d0&utm_content=researchy_proof#market-proof
+https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 **CTA:** $97 Turnkey Agent Vault  
 https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d0&utm_content=vault_97#vault-offer
@@ -67,7 +67,7 @@ More freedom without a state file is a promotion to cleanup crew. ARGON-01 keeps
 If **{{niche}}** still depends on you to notice the bad ad set, the agent is not running the account. The controller is.
 
 **CTA:** Read both quotes on the live engine  
-https://karllange.github.io/argon-autonomous-engine/?utm_source=nurture&utm_medium=email&utm_campaign=argon_d1&utm_content=babysitting#market-proof
+https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 ---
 
@@ -115,12 +115,11 @@ Researchy’s primary set, in the order we are running them:
 4. “15 Buy now clicks from Reddit ads, 0 sales: what am I missing?” — u/GimmeAByte0101
 
 All four are linked from the live proof strip:  
-https://karllange.github.io/argon-autonomous-engine/#market-proof
+https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 Two ways to install the answer for **{{niche}}**:
 
-- **$97 — Turnkey Agent Vault.** The specs and the state engine. You implement. Stripe returns you to `vault-access.html?tier=core`.
-- **$394 — Full Bundle.** Those specs plus the production funnel, the wired controller, and the affiliate stack. Stripe returns you to `vault-access.html?tier=bundle`.
+- The vault download page and the zip checkout have been removed. The live page is a free waitlist: https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 Core buyers can add the boilerplate later for **$297** from the upgrade card inside the portal. You do not pay $394 twice.
 

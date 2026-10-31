@@ -1,0 +1,38 @@
+{
+  "_sample": true,
+  "_sample_note": "SAMPLE FILE. Every value below is an example label, not live telemetry, not a customer, and not an ad-account balance.",
+  "project": "ARGON-01-SAMPLE",
+  "offer": {
+    "_sample": true,
+    "name": "SAMPLE offer name \u2014 not the live waitlist",
+    "core_price_usd": 97,
+    "upsell_price_usd": 297,
+    "_price_note": "SAMPLE prices copied from the old config so the report can print. The public site is a free waitlist."
+  },
+  "capital_pool": {
+    "_sample": true,
+    "starting_budget_usd": 1000,
+    "allocated_tranche_usd": 100,
+    "remaining_reserve_usd": 900,
+    "max_spend_without_sale_usd": 50,
+    "scale_roas_trigger": 2.0,
+    "_note": "SAMPLE guardrails. This file does not move money."
+  },
+  "telemetry": {
+    "_sample": true,
+    "active_tranche": 1,
+    "spend_usd": 0,
+    "revenue_usd": 0,
+    "impressions": 0,
+    "clicks": 0,
+    "opt_ins": 0,
+    "sales": 0,
+    "_note": "SAMPLE zeros. Not measured traffic."
+  },
+  "self_healing_flags": {
+    "_sample": true,
+    "current_status": "NO_TELEMETRY_YET",
+    "action_required": "ADD_SAMPLE_OR_REAL_NUMBERS",
+    "last_agent_run": "KIT_DRAFT_EVALUATE_FUNNEL_ADVISORY"
+  }
+}

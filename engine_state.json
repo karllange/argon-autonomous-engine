@@ -7,7 +7,7 @@
   "deployment": {
     "github_repo_url": "https://github.com/karllange/argon-autonomous-engine",
     "live_funnel_url": "https://karllange.github.io/argon-autonomous-engine/",
-    "vault_access_url": "https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=bundle"
+    "vault_access_url": ""
   },
   "agent_ownership": {
     "triage_and_handoff_router": {
@@ -34,12 +34,12 @@
     }
   },
   "offer": {
-    "name": "The ARGON Turnkey Agent Vault",
+    "name": "Early access waitlist",
     "core_price_usd": 97,
     "upsell_price_usd": 297,
     "target_revenue_cycle_1_usd": 2000,
-    "deliverable_zip": "vault_product/ARGON_Turnkey_Agent_Vault_v1.zip",
-    "upsell_bundle_zip": "vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip",
+    "deliverable_zip": "",
+    "upsell_bundle_zip": "",
     "stripe_payment_links": {
       "source": "config.js",
       "mode": "sandbox",
@@ -65,8 +65,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "FUNNEL_CONFIG_CENTRALIZED_AWAITING_LIVE_PAYMENT_LINKS",
-    "action_required": "KARL_PASTE_LIVE_STRIPE_PAYMENT_LINKS_AND_ROTATE_APPS_SCRIPT",
-    "last_agent_run": "GROK_BOT: Centralized public Payment Links in config.js, showed $97 on the first screen, restored #vault-offer, removed the Apps Script URL from client pages, and stopped publishing internal files on GitHub Pages. Live links are still blank."
+    "current_status": "WAITLIST_MODE_KIT_DRAFT_NOT_ON_PAGES",
+    "action_required": "MAKE_REPO_PRIVATE_AND_ROTATE_WEBHOOK",
+    "last_agent_run": "GROK_BOT: Removed vault zips, vault-access, and variant-b. Homepage is a free waitlist. Fixed kit draft is in kit-draft and is not published."
   }
 }
