@@ -1,35 +1,57 @@
-# Project ARGON (`ARGON-01`) — Autonomous Agent Governance Rules
+# Agent workflow
 
-> **STANDALONE BUSINESS UNIT DECLARATION:**  
-> Project ARGON (`ARGON-01`) operates as an independent, standalone autonomous revenue business unit under `PERSONAL_ZERO_PHI` governance.
->
-> **CRITICAL DIRECTIVE FOR ALL IDE & AUTONOMOUS AGENTS:**  
-> You MUST read [`engine_state.json`](file:///c:/argon-autonomous-engine/engine_state.json) at the start of every run and update [`engine_state.json`](file:///c:/argon-autonomous-engine/engine_state.json) immediately upon completing any task.
+Three agents share this repo. Read `AI_HANDOFF.md` at the start of every session. Update it before the session ends.
 
----
+## Agents
 
-## 1. Standalone Bot Topology & Loop Ownership Table
+### Gemini — Lead Architect & Conversion Strategist
 
-| Loop / Role | Assigned Autonomous Owner | Scope, Responsibility & Artifact Target |
-| :--- | :--- | :--- |
-| **Triage & Handoff Router** | **Main Grok Dispatcher Bot** | Sorts & routes incoming triggers and state transitions only (zero execution bloat). |
-| **Loop 1 (Market Recon Owner)** | **`Researchy`** | Scrapes 14-day X/Reddit verbatim complaints & validated links $\to$ [`scout/market_intel.json`](file:///c:/argon-autonomous-engine/scout/market_intel.json). |
-| **Loop 2 & 4 (Factory & Self-Healing Controller Owner)** | **Google Antigravity / Cursor** | Compiles & optimizes [`funnel/index.html`](file:///c:/argon-autonomous-engine/funnel/index.html) and executes [`controller/evaluate_funnel.py`](file:///c:/argon-autonomous-engine/controller/evaluate_funnel.py) circuit breakers. |
-| **Loop 3 (Traffic & Distribution Owner)** | **`O Marketing`** | Deploys paid & organic distribution in strictly capped **\$100 tranches** using [`creatives/tranche_1_ads.md`](file:///c:/argon-autonomous-engine/creatives/tranche_1_ads.md). |
+Owns the blueprint, the architecture, the funnel and conversion strategy, and the task queue.
 
----
+Writes Section 1 and Section 3 of `AI_HANDOFF.md`.
 
-## 2. State Synchronization Protocol (`engine_state.json`)
-- **Before starting work:** Read [`engine_state.json`](file:///c:/argon-autonomous-engine/engine_state.json) to verify `business_unit`, `agent_ownership`, `offer`, `capital_pool`, `telemetry`, and `self_healing_flags` (`current_status`, `action_required`, `last_agent_run`).
-- **After completing work:** Update `self_healing_flags.current_status`, advance `self_healing_flags.action_required` to the next pipeline action, and record your agent identifier in `self_healing_flags.last_agent_run`.
+### Cursor Composer — Local Builder
 
----
+Implements the blueprint on local branches. Does not invent a new offer or a new architecture.
 
-## 3. System Directory Topology
-- `/scout` — Autonomous pain-point and 14-day X/Reddit reconnaissance owned by `Researchy` ([`scout/market_intel.json`](file:///c:/argon-autonomous-engine/scout/market_intel.json)).
-- `/funnel` — Direct-response landing page UI and conversion checkout flows (\$97 core / \$297 upsell) owned by Google Antigravity / Cursor ([`funnel/index.html`](file:///c:/argon-autonomous-engine/funnel/index.html)).
-- `/vault_product` — The \$97 Turnkey Agent Vault customer deliverables + packaged archive ([`vault_product/ARGON_Turnkey_Agent_Vault_v1.zip`](file:///c:/argon-autonomous-engine/vault_product/ARGON_Turnkey_Agent_Vault_v1.zip)).
-- `/creatives` — 10-variant ad creative matrices and viral organic posts executed by `O Marketing` ([`creatives/tranche_1_ads.md`](file:///c:/argon-autonomous-engine/creatives/tranche_1_ads.md)).
-- `/controller` — Self-healing ROAS/CTR diagnostic scripts (\$50 kill-switch & 2.0x ROAS snowball scaler) owned by Google Antigravity / Cursor ([`controller/evaluate_funnel.py`](file:///c:/argon-autonomous-engine/controller/evaluate_funnel.py)).
+Writes what was built into Section 1 of `AI_HANDOFF.md`.
 
-See [`.cursor/rules/argon-architecture.mdc`](file:///c:/argon-autonomous-engine/.cursor/rules/argon-architecture.mdc) for full IDE rule metadata.
+### Grok Bot — 24/7 Cloud Scout, Funnel QA & Conversion Auditor
+
+Audits the repo and the live pages. Checks CTAs, payment-link routing, console errors, mobile layout, and conversion friction. Reports findings. Does not patch the funnel unless a handoff task says to.
+
+Writes Section 2 of `AI_HANDOFF.md`.
+
+Works only on `grok/*` branches and opens pull requests.
+
+## Strict rules
+
+### Zero-PHI / HIPAA boundary
+
+No protected health information and no patient-identifiable data anywhere: the repo, commits, issues, pull requests, logs, test data, screenshots, or handoff notes.
+
+Use placeholder data only.
+
+If PHI is found: stop. Do not copy it. Flag only its location in `AI_HANDOFF.md`.
+
+### Secrets
+
+Never expose private API keys or Stripe secret keys.
+
+Stripe secret keys (`sk_live_` / `sk_test_`) and restricted keys (`rk_`) must never go in the repo, the client code, commits, logs, or the handoff.
+
+Only publishable keys and public Payment Links may appear client-side.
+
+Secrets go in environment variables or a secret store.
+
+If a secret is found: report the file path and recommend rotating it. Never paste the value.
+
+### Branches
+
+Grok Bot must never push directly to `main`. This repo's default branch is `master`. Do not push to `master` either.
+
+Grok Bot works only on `grok/*` branches and opens pull requests for human review. Karl Lange merges.
+
+### Clipboard
+
+Every agent reads `AI_HANDOFF.md` at the start of a session and updates it at the end of every session, with the date, the agent, and what changed.
