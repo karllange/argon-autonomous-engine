@@ -37,6 +37,38 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-10-31 — Grok Bot — funnel fixes on `grok/fix-funnel-and-marketing`
+
+Local retest only. GitHub Pages still serves the previous deploy until this branch is merged. Playwright, headless Chrome, viewports 1440×900 and 390×844. Placeholder email `audit@example.com`. Pay was not clicked. No card data was entered.
+
+What changed:
+
+- `config.js` is the only place pages read Payment Links. `mode` is `"sandbox"`. `paymentLinks.live.core97`, `bundle394`, and `upsell297` are empty. Karl has to paste live-mode links and set `mode` to `"live"`. Sandbox links stay in `paymentLinks.sandbox` so the current test checkout still opens.
+- Checkout appends `?prefilled_email=` when an email was entered. Observed on both `/` and `/funnel/index.html`: the opened Stripe URL contained `prefilled_email=audit%40example.com`, and the Stripe email field showed `audit@example.com`. Core checkout still showed The Blueprint at $97.00. With the build-kit box checked, the modal total was $394.00 and Stripe showed The Blueprint + Build Kit at $394.00. Both checkouts still show the Sandbox badge.
+- First screen shows **$97** and **The Blueprint**, with the subhead "The practical guide to building your own AI-driven revenue engine." Header, hero, and `#vault-offer` buttons read **Get the Blueprint — $97**. Modal line is still The Blueprint at $97.00, button "Continue — $97.00".
+- `#vault-offer` is a real section. Local `/#vault-offer` scrolled to about 993px and the heading "The Blueprint — $97" was in view. `/funnel/index.html#vault-offer` did the same (scroll about 1003px).
+- The vault-access upgrade no longer uses the link that returned HTTP 403. With the live upsell link blank, the control has no `href`, `aria-disabled="true"`, and a note that Karl must paste `paymentLinks.live.upsell297`.
+- Client pages no longer contain the Apps Script host. `leadWebhookUrl` in `config.js` and `engine_state.json` is empty. The same host was removed from the boilerplate zips. Recommend rotating that Apps Script deployment. The URL is not repeated here.
+- GitHub Pages workflow now publishes only `config.js`, the three HTML pages, and the download zips, and deletes previously published internal files (including `engine_state.json`) from `gh-pages` on the next deploy. `/marketing` is not published.
+- `/marketing` has a README, a QA log, and an experiment log. No stats were invented.
+
+Local measurements:
+
+| Page | Viewport | HTTP | Overflow | $97 in view | Hero CTA in view | CTA size |
+| --- | --- | --- | --- | --- | --- | --- |
+| `/` | 1440 | 200 | no | yes | yes (bottom 508 of 900) | 206×48 |
+| `/` | 390 | 200 | no | yes | yes (bottom 447 of 844) | 206×48 |
+| `/funnel/index.html` | 1440 | 200 | no | yes | yes | 206×48 |
+| `/funnel/index.html` | 390 | 200 | no | yes | yes | 206×48 |
+
+Header button was 182×44 on both widths. No horizontal overflow. Mobile checkout submit stayed in view (bottom 714 of 844). No page errors. The only console 404 was `/favicon.ico`, which this branch does not add.
+
+"The $300/Month Empire" is still on the first screen, under the $97 price. Variant B still calls the product the Turnkey Agent Vault in its own headline. Checkout for that page now uses the same config and still charges The Blueprint at $97 in sandbox.
+
+Untested: a real card, the Pay button, Stripe success URLs back to `vault-access.html`, and live-mode links (they are blank). Webhook delivery is untested because the URL was removed.
+
+Screenshots (not committed): `local-root-desktop.png`, `local-root-mobile.png`, `local-funnel-desktop.png`, `local-funnel-mobile.png`, `local-root-vault-offer.png`, `local-funnel-vault-offer.png`, `local-root-modal-core.png`, `local-root-mobile-modal.png`, `local-stripe-core-nopay.png`, `local-vault-access-upgrade.png`.
+
 ### 2026-10-31 — Grok Bot — initial funnel audit
 
 - Pages checked: `https://karllange.github.io/argon-autonomous-engine/` and `https://karllange.github.io/argon-autonomous-engine/funnel/index.html`.
