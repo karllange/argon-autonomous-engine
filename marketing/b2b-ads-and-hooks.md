@@ -27,24 +27,25 @@ Each post is short enough for X and can be pasted on LinkedIn as-is. Link them t
 
 ### Post 1
 
-The AI wave is here. Don't get left behind.
+Want to build your own AI-driven revenue engine?
 
-The Blueprint is the practical guide to building your own AI-driven revenue engine. $97, one time.
+The Blueprint is the practical guide. $97, one time. One-time access, sent to your email.
 
 Get the Blueprint — $97
 https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 ### Post 2
 
-The page states the premise in plain words: you do not need venture capital, a computer science degree, or a massive corporate team to bring an idea to life.
+You do not need venture capital, a computer science degree, or a massive corporate team to bring an idea to life.
 
-The offer under that is The Blueprint for $97. One-time access, sent to your email.
+The Blueprint is the practical guide to building your own AI-driven revenue engine. $97. One-time access, sent to your email.
 
+Get the Blueprint — $97
 https://karllange.github.io/argon-autonomous-engine/#vault-offer
 
 ### Post 3
 
-For less than $300 a month in AI tools, the homepage says, you have more leverage than the generation before you.
+For less than $300 a month in AI tools, you have more power, leverage, and creative capacity at your fingertips than any generation before us.
 
 The Blueprint is $97. At checkout you can add the build kit for $297. Together, $394.
 
@@ -64,7 +65,7 @@ CTA on all three is the homepage button. Send the click to `#vault-offer`.
 ### Ad 2
 
 - Headline: The Blueprint — $97
-- Primary text: You do not need venture capital, a computer science degree, or a massive corporate team. That is the premise on the page. The offer is The Blueprint for $97.
+- Primary text: You do not need venture capital, a computer science degree, or a massive corporate team. The Blueprint is the practical guide to building your own AI-driven revenue engine. $97, one time.
 - CTA: Get the Blueprint — $97
 
 ### Ad 3

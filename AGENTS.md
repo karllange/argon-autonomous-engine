@@ -58,6 +58,6 @@ Every agent reads `AI_HANDOFF.md` at the start of a session and updates it at th
 
 ### Copy rules
 
-Never invent refund, guarantee, or trial policies that are not stated in `_config.md` (or `config.js` for this repo). Reject any symptom or pain-relief wording, including reviewer suggestions, in favor of pure cellular structure/function language (ATP, cytochrome c oxidase, oxidative balance, cellular signaling).
+Never invent refund, guarantee, trial, or risk-free policies that are not stated in `_config.md` (or `config.js` for this repo). Reject any symptom or pain-relief wording, including reviewer suggestions, in favor of pure cellular structure/function language (ATP, cytochrome c oxidase, oxidative balance, cellular signaling).
 
 Copy on `grok/*` branches gets a Gemini API compliance review before Karl is pinged.

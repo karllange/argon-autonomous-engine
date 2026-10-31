@@ -65,8 +65,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "MARKETING_COPY_DRAFTED_AWAITING_GEMINI_REVIEW",
-    "action_required": "GEMINI_COMPLIANCE_REVIEW_THEN_PING_KARL",
-    "last_agent_run": "GROK_BOT: Drafted marketing/b2b-ads-and-hooks.md and marketing/vault-upsell-emails.md from config.js and the homepage. No PR. Live Payment Links still blank."
+    "current_status": "MARKETING_COPY_GEMINI_REVIEWED_READY_FOR_PR",
+    "action_required": "KARL_REVIEW_PR_AND_PASTE_LIVE_STRIPE_PAYMENT_LINKS",
+    "last_agent_run": "GROK_BOT: Applied 16 Gemini copy edits to the Blueprint ads and vault emails. Ads pass. Emails needs_changes, conversion only. No compliance issues. Sandbox links still blank."
   }
 }

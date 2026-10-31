@@ -28,33 +28,33 @@ From-name in the drafts: ARGON. No personal title.
 
 - Subject: The Blueprint is $97
 - Preview: One-time access, sent to your email.
-- Body: You already have this address on the list. The offer is on the page now. The Blueprint is the practical guide to building your own AI-driven revenue engine. The price on the first screen is $97. The button says Get the Blueprint — $97. It is one-time access, sent to your email.
+- Body: Thanks for leaving your email. The Blueprint is the practical guide to building your own AI-driven revenue engine. It is $97, one time. One-time access, sent to your email. The link below opens the offer.
 - CTA: Get the Blueprint — $97
 
 ## Day 2
 
-- Subject: What the first screen actually says
+- Subject: The AI wave is here
 - Preview: The practical guide, priced at $97.
-- Body: The headline on the page is "The AI Wave is Here. Don't Get Left Behind." Under it, the product line is the same line as checkout: the practical guide to building your own AI-driven revenue engine. The price next to The Blueprint is $97. The section the link opens is the offer, not a different product.
-- CTA: Open the $97 offer
+- Body: We are on the precipice of a gigantic change in society. The Blueprint is the practical guide to building your own AI-driven revenue engine, written for everyday builders. $97, one time.
+- CTA: Get the Blueprint — $97
 
 ## Day 3
 
-- Subject: No venture capital required, the page says
+- Subject: No venture capital required
 - Preview: No computer science degree. No massive team.
-- Body: The page states its premise in one sentence: you do not need venture capital, a computer science degree, or a massive corporate team to bring an idea to life. The thing it sells under that premise is The Blueprint for $97. One time. Sent to your email after checkout.
+- Body: For the first time in history, you don't need venture capital, a computer science degree, or a massive corporate team to bring your ideas to life. The Blueprint is the practical guide to building your own AI-driven revenue engine. $97. One-time access, sent to your email.
 - CTA: Get the Blueprint — $97
 
 ## Day 4
 
-- Subject: The $300 line is about tools
-- Preview: The offer under it is still $97.
-- Body: The homepage has a heading, "The $300/Month Empire." The paragraph under it is about the cost of AI tools: for less than $300 a month in AI tools. It is not a revenue promise, and this email does not turn it into one. The product price on that same page is $97 for The Blueprint.
-- CTA: See The Blueprint — $97
+- Subject: Less than $300 a month in AI tools
+- Preview: The Blueprint is $97, one time.
+- Body: For less than $300 a month in AI tools, you have more power, leverage, and creative capacity at your fingertips than any generation before us. That $300 is what the tools cost, not what they earn. The Blueprint is the practical guide to building your own AI-driven revenue engine, for $97.
+- CTA: Get the Blueprint — $97
 
 ## Day 5
 
 - Subject: Optional: the build kit is $297
 - Preview: Together with The Blueprint, $394.
-- Body: The Blueprint stays $97 if you leave the box unchecked. At checkout the page offers one add-on: the build kit for $297. The line on the offer section is "Optional at checkout: Build kit for $297. Together, $394." In config, that kit is the working funnel, controller, and affiliate bridges. Check it only if you want both. The button then reads Continue — $394.00. Leave it unchecked and the button stays Continue — $97.00.
+- Body: The Blueprint is $97 on its own. At checkout there is one optional add-on: the build kit for $297. It is the working funnel, controller, and affiliate bridges, so you can start from a working example instead of a blank folder. Together, $394. Check the box only if you want both. Leave it unchecked and the total stays $97.00.
 - CTA: Choose $97 or $394 at checkout

@@ -37,6 +37,41 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-10-30 — Gemini API Compliance Approved (gemini-3.5-flash)
+
+Gemini verdicts: ads pass. Emails `needs_changes`, conversion only. No compliance issues.
+
+Applied edits:
+
+1. Post 1 now opens with "Want to build your own AI-driven revenue engine?" and states one-time email access.
+2. Post 2 states the no-venture-capital premise directly.
+3. Post 2 names The Blueprint, the $97 price, email access, and the real button label.
+4. Post 3 now quotes the page sentence on power, leverage, and creative capacity. This fixes the misquote that said only "more leverage than the generation before you."
+5. Ad 2 primary text names The Blueprint and the $97 one-time price.
+6. Day 1 body thanks the reader and points the link at the offer.
+7. Day 2 subject is "The AI wave is here".
+8. Day 2 body uses the "precipice of a gigantic change" line and everyday builders.
+9. Day 2 CTA is "Get the Blueprint — $97".
+10. Day 3 subject is "No venture capital required".
+11. Day 3 body uses the "for the first time in history" line from the page.
+12. Day 4 subject is "Less than $300 a month in AI tools".
+13. Day 4 preview is "The Blueprint is $97, one time."
+14. Day 4 body quotes the tools-cost sentence and says that $300 is tool cost, not earnings.
+15. Day 4 CTA is "Get the Blueprint — $97".
+16. Day 5 body describes the $297 build kit as the working funnel, controller, and affiliate bridges, and says the unchecked total stays $97.00.
+
+Rejected suggestions:
+
+1. "Automate your revenue workflow without writing complex code". It invents capabilities.
+2. Replacing Ad 3's "The AI wave is here" headline. That is the page H1, so the ad and the page should match.
+3. "Speak to pain points". Partly accepted, with no invented problems.
+4. "Transformational output". Partly accepted, with no outcome or income promise. "In days" was left out as a time-to-result claim.
+5. "Get Instant Access". The page never says instant.
+6. "Build Your AI Revenue Engine Now". It implies an outcome and drops the price.
+7. Changing the Day 5 CTA "Choose $97 or $394 at checkout". Kept, because it avoids checkout surprise.
+
+`config.js` is still sandbox. No ads or emails go out until live Payment Links are set and `mode` is `"live"`.
+
 ### 2026-10-31 — Grok Bot — marketing copy drafted, no PR
 
 Branch `grok/argon-marketing-copy`. No pull request opened. Copy is waiting for the Gemini API compliance review before Karl is pinged.
