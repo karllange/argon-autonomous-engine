@@ -37,6 +37,105 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-10-30 — Brutally Honest Product Audit (pre-Stripe-live)
+
+Checked on current `master` (`758aa2d`). I unzipped every copy of the two product zips and counted lines with the same method as `wc -l`. Live zip URLs were checked with a header request only. No card was entered. No refund policy is written here. That decision is Karl's, and so is any support email.
+
+The line counts in the brief match the zips GitHub Pages actually serves (`downloads/` and `funnel/downloads/`, byte-for-byte the same). They do not match `vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip`. That third bundle is called out at the bottom of the inventory.
+
+Word count of the three Vault essays is 3,372 (1,247 + 1,198 + 927). That is the "about 3,400 words" figure, and it is about 12 pages if you print at roughly 280 words a page. There is no PDF and no video in any zip.
+
+#### 1. Inventory
+
+**$97 file:** `ARGON_Turnkey_Agent_Vault_v1.zip`, 12,317 bytes. Same bytes in `downloads/`, `funnel/downloads/`, and `vault_product/`. Three files. No PDFs. No videos.
+
+| File | Path inside the zip | Size | Lines | Verdict |
+| --- | --- | --- | --- | --- |
+| `01_Grok_Bot_Scout_Playbook.md` | zip root | 9,668 bytes | 181 | Thin. A cron recipe for a program that does not exist, plus ad headlines written as if a campaign already happened. |
+| `02_Antigravity_Cursor_Funnel_Factory.md` | zip root | 8,701 bytes | 112 | Thin notes for building a page. Not a step-by-step that ends in a live site. |
+| `03_Self_Healing_Controller_Spec.md` | zip root | 7,738 bytes | 149 | Thin, and the worked example does not add up. The rules do not match the only script we ship. |
+
+**$297 file that Pages serves:** `ARGON_Full_Boilerplate_Bundle_v1.zip`, 25,238 bytes, in `downloads/` and `funnel/downloads/`. Eight files. The three essays above are repeated. The other five:
+
+| File | Path inside the zip | Size | Lines | Verdict |
+| --- | --- | --- | --- | --- |
+| `index.html` | zip root | 19,700 bytes | 677 | This is the sales page itself, the same 677-line homepage as `funnel/index.html`. A buyer is getting the storefront, not a lesson. |
+| `config.js` | zip root | 2,450 bytes | 74 | Sandbox Payment Links, with the live slots blank. Same file as the repo root. Not a product. It also means a paid zip contains the test checkout URLs. |
+| `evaluate_funnel.py` | zip root | 7,780 bytes | 165 | The only runnable tool in the bundle. It crashes out of the box. It only reads and writes a JSON file and prints a verdict. It never talks to an ad account. |
+| `AGENTS.md` | zip root | 3,483 bytes | 35 | Old internal agent notes. Current `AGENTS.md` on `master` is 57 lines. This copy is stale. |
+| `argon-architecture.mdc` | zip root | 2,244 bytes | 30 | Internal editor rule. Same 30 lines as `.cursor/rules/argon-architecture.mdc`. Not a customer lesson. |
+
+**Customer page, not inside the zip:** `vault-access.html` (and the identical `funnel/vault-access.html`) is 453 lines. It is the post-purchase page. Verdict below: it shows setup notes a buyer should not need, and the lock is fake.
+
+**Not the same bundle:** `vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip` is 29,599 bytes and is not what Pages serves. Its `index.html` is 40,884 bytes and 745 lines, not 677. Its `evaluate_funnel.py` is 7,329 bytes and 159 lines, not 165. The other six names match the Pages bundle, including `config.js` at 74 lines. Do not describe that zip as the $297 deliverable.
+
+#### 2. Useful or thin
+
+I could not find `argon-runner` anywhere in the repo. No script, no binary. Module 01 still tells the buyer to install cron lines that call `/usr/local/bin/argon-runner`. The third line is commented "Every 90 minutes" and written as `*/90` in the minute field. A minute field only runs from 0 to 59, so that is not "every 90 minutes." As written it can only land on minute 0.
+
+The essays present made-up results as if they happened. Module 01 includes a finished headline, "How a $50 Kill-Switch Saved Our $1,000 Testing Pool (And Found a 2.8x ROAS Winner by Tranche 3)." Module 03 walks through Ad Set A, Ad Set B, $194 revenue, then $491, and a 4.91x ROAS. `engine_state.json` telemetry on `master` is still all zeros. Those numbers are not a measured result from this project.
+
+Module 03's reserve math does not hold. The story spends the first $100, then takes another $100 out of the $900 reserve and also adds a $195.50 "reinvestment" into the next ad budget. It then puts that same $195.50 back into the reserve and says original principal at risk is now $0. The $195.50 cannot both be spent on ads and locked in the reserve. The $100 already spent is gone. Principal at risk is not zero.
+
+The thresholds also disagree with `evaluate_funnel.py`:
+
+- The spec kills at $50 with 0 sales and sets one action name. The script sets `KILL_OR_PIVOT`.
+- The spec waits for 1,500 impressions and a CTR under 1.0%. The script flags CTR under 1.2% with no impression minimum.
+- The spec wants CTR of at least 1.5% and 100 clicks before it calls the page the problem. The script flags any opt-in rate under 15% as soon as there is one click.
+- The spec scales only when spend is at least $50 and ROAS is at least 2.0, and it names the action `SCALE_WINNING_TRANCHE`. The script scales whenever spend is above zero and ROAS is at least 2.0, and it names the action `SCALE_TRANCHE`.
+- The spec tells the buyer to save a file at `/controller/roas_governor.py`. That file is not in the zip. The file they did get is `evaluate_funnel.py` sitting at the top of the zip.
+
+I ran that script from a fresh unzip. It crashed with `FileNotFoundError` for `engine_state.json` one folder above the unzip directory (`parent.parent` of the script). The JSON file is not in the zip, and the path assumes a `controller/` folder the zip does not have. Nothing in the script calls an ad platform. It is advice printed in a terminal.
+
+"Affiliate bridges" are a phrase, not a file. They show up in `config.js` ("the working funnel, controller, and affiliate bridges"), on the homepage bump, and on `vault-access.html`. Neither zip contains an affiliate template, a link map, or a module by that name.
+
+The 15-minute checklist on `vault-access.html` sends the buyer to files the zips do not contain:
+
+- Step 2 says open `engine_state.json`. It is not in either zip.
+- Step 3 says run a scout pass into `scout/market_intel.json`. That file is not in either zip. The playbook markdown is only in the $97 zip.
+- Step 5 says run `python controller/evaluate_funnel.py`. The $97 zip has no Python file. The $297 zip has `evaluate_funnel.py` at the top level, not under `controller/`, and it crashes as tested above.
+
+The same page shows internal setup in the buyer's view: the $1,000 / $100 / $900 / $50 guardrails, instructions to point Stripe success URLs at `?tier=core` or `?tier=bundle`, and a banner that tells you to set those URLs yourself if no tier was attached. That is operator notes, sitting on the fulfillment page.
+
+`variant-b.html` is live. A header request to `https://karllange.github.io/argon-autonomous-engine/variant-b.html` returned 200. The file is 826 lines. On that page I can see a struck-through "$2,491" value, a scout demo that invents "Est. CTR: 2.4%+", "1.9%+", and "2.1%+", the line "Why 91% of … lose money on paid traffic," and a "CONFIDENCE SCORE: 9.4/10." None of those figures exist as measured telemetry. The page also names @Anaya_sharma876, u/marketing_guy_37, and @0xPaulvibe and presents their posts as proof. I am not repeating the posts.
+
+#### 3. Access leaks
+
+The GitHub repo `karllange/argon-autonomous-engine` is public.
+
+The zips return HTTP 200, with no login, at:
+
+- `https://karllange.github.io/argon-autonomous-engine/downloads/ARGON_Turnkey_Agent_Vault_v1.zip`
+- `https://karllange.github.io/argon-autonomous-engine/downloads/ARGON_Full_Boilerplate_Bundle_v1.zip`
+- `https://karllange.github.io/argon-autonomous-engine/funnel/downloads/ARGON_Turnkey_Agent_Vault_v1.zip`
+- `https://karllange.github.io/argon-autonomous-engine/funnel/downloads/ARGON_Full_Boilerplate_Bundle_v1.zip`
+
+`.github/workflows/deploy-funnel.yml` copies `funnel/downloads/` onto both of those Pages paths on every deploy. Paying is not required.
+
+`vault-access.html` decides the tier by reading `?tier=` in the browser. `?tier=bundle` shows the bundle download. `?tier=core` shows the core download. There is no server check and no Stripe session check. I did not need a receipt. The lock is the query string.
+
+The old Apps Script webhook is still in git history. It is not in the current working tree. It still has to be rotated. The URL is not written here. Commits that introduced or carried it include `dc3d5ab`, `0996d4c`, and `6c06ee8`.
+
+#### 4. Recommendation
+
+Pivot. The honest product is practical, beginner-friendly AI and tech training, not an autonomous ad buyer. The $97 should be a real step-by-step guide: a PDF plus a 20–40 minute walkthrough video, screenshots, a starter template, fill-in prompts, and a troubleshooting section. The lesson should take someone from an empty folder to a live page with Stripe, GitHub Pages, and an AI coding agent. Fix the broken pieces above before that lesson claims the controller or the scout runner works.
+
+Until that ships, sell the current files as $19–29 early access, as-is, with an honest scope statement, or do not sell them.
+
+Cut the $297 bump. Or re-price today's kit at $27–47 and call it "the source files behind this site," and only after it is a clean, unbranded, documented template. Right now the bundle is the sales page, a crashing script, sandbox config, and internal notes.
+
+Before any live Payment Link:
+
+- Make the repo private.
+- Remove the zips from GitHub Pages and from the deploy workflow.
+- Deliver files with an expiring signed link (Gumroad, Lemon Squeezy, or a Stripe session check).
+- Rotate the Apps Script webhook.
+- Take down `variant-b.html`, or rewrite it so the value, the CTR lines, the 91% line, the confidence score, and the named posts are gone.
+
+The refund policy and the support email are Karl's decision. This audit does not write either one.
+
+`config.js` is still sandbox. Do not turn on live checkout against this product as it sits.
+
 ### 2026-10-31 — Grok Bot — funnel fixes on `grok/fix-funnel-and-marketing`
 
 Local retest only. GitHub Pages still serves the previous deploy until this branch is merged. Playwright, headless Chrome, viewports 1440×900 and 390×844. Placeholder email `audit@example.com`. Pay was not clicked. No card data was entered.
