@@ -37,6 +37,31 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-10-31 — Honest cleanup
+
+Branch `grok/honest-cleanup`. The public pages are a free waitlist. No Stripe redirect.
+
+Removed:
+
+- `variant-b.html` and `funnel/variant-b.html` (the $2,491 line, the scout demo, and the named quotes).
+- `vault-access.html` and `funnel/vault-access.html`.
+- `downloads/` and `funnel/downloads/` (both zip copies).
+- `vault_product/ARGON_Turnkey_Agent_Vault_v1.zip` and `vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip`.
+- The Pages workflow no longer copies those files. The next deploy replaces `gh-pages`, so those URLs drop after merge. This branch does not push `gh-pages` itself.
+
+Changed:
+
+- `index.html` and `funnel/index.html` are the same waitlist page. The button is "Join the Early Access Waitlist". The modal asks for an email and posts to `config.js` `leadWebhookUrl` only. The confirmation is "You're on the list! We'll notify you when the new training & toolkit launches". A failed submit keeps the email and asks for a retry. Sandbox Payment Links stay in `config.js` and the page does not use them.
+- Footer: "Questions? Contact karl@redoxhealthrevolution.com" from `SUPPORT_EMAIL`, plus "Digital product and waitlist terms apply." No refund or guarantee text was added.
+- `controller/evaluate_funnel.py` no longer points at variant B.
+- Nurture notes that linked to `vault-access.html` or `#market-proof` now point at the waitlist section.
+- `kit-draft/` holds a local controller draft: fixed path (state file beside the script), rules aligned with Module 03, a 30-minute cron line instead of `*/90`, a clear exit when the state file is missing, a sample `engine_state.json`, a README, and corrected copies of the three modules. Sample quotes and figures are labeled sample. `argon-runner` is not a command. The "Compouding" typo is corrected. The reserve example no longer counts the same profit twice. The kit is not linked from the site and is not copied to Pages. `robots.txt` disallows `/kit-draft/` in case a later setup serves the whole branch.
+- The three original module files are still in `vault_product/`. They are not the corrected draft.
+
+Deleting these files does not remove them from git history, and it does not remove a copy someone already downloaded. The repo should be made private, and the old Apps Script webhook should be rotated. The URL is not written here.
+
+Gemini API Compliance Approved (gemini-3.5-flash), 2026-10-30. Waitlist copy reviewed: 0 compliance issues. Two conversion suggestions were skipped because they would invent details Karl hasn't decided: (1) naming a target audience plus 3 toolkit bullets, and (2) a launch date plus a 20% waitlist discount. Left for Karl. No copy changes were made.
+
 ### 2026-10-30 — Brutally Honest Product Audit (pre-Stripe-live)
 
 Checked on current `master` (`758aa2d`). I unzipped every copy of the two product zips and counted lines with the same method as `wc -l`. Live zip URLs were checked with a header request only. No card was entered. No refund policy is written here. That decision is Karl's, and so is any support email.
