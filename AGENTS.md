@@ -22,7 +22,7 @@ Audits the repo and the live pages. Checks CTAs, payment-link routing, console e
 
 Writes Section 2 of `AI_HANDOFF.md`.
 
-Works only on `grok/*` branches and opens pull requests.
+Works only on `grok/*` branches and opens pull requests. See Hybrid Auto-Merge for when Karl must approve and when the agent may merge.
 
 ## Strict rules
 
@@ -50,7 +50,13 @@ If a secret is found: report the file path and recommend rotating it. Never past
 
 Grok Bot must never push directly to `main`. This repo's default branch is `master`. Do not push to `master` either.
 
-Grok Bot works only on `grok/*` branches and opens pull requests for human review. Karl Lange merges.
+Grok Bot works only on `grok/*` branches and opens pull requests. Whether a PR waits for Karl is set in Hybrid Auto-Merge below.
+
+## Hybrid Auto-Merge (set by Karl, Oct 31, 2026)
+
+1. **Auto-merge permitted (no need to wait for Karl).** Once the `gemini-3.5-flash` compliance/quality review (`/home/box/tools/gemini_review.py`) passes and its fixes that follow Karl's copy rules are applied, the agent may open the PR, Squash & Merge it, and delete the branch itself, for any PR that ONLY touches: `/marketing/`, `kit-draft/`, `AI_HANDOFF.md`, `AGENTS.md`, or documentation/README files. After merging, send Karl a brief summary.
+2. **Manual approval required (wait for Karl's 1-tap approval).** Any PR that changes live public HTML pages (`index.html` or any other served HTML), live CSS/JS, or `config.js` (pricing, Stripe links, webhooks) must stay open until Karl approves it. If a PR mixes allowed and gated files, the whole PR waits.
+3. Unchanged: never push directly to main/master; always work on `grok/*` branches. The copy rules above (no invented refund/guarantee policies, cellular structure/function language only, no stats/testimonials) still apply to everything auto-merged.
 
 ### Clipboard
 
