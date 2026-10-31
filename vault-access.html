@@ -189,13 +189,19 @@
                 After payment, Stripe should return you to <span class="text-slate-300">vault-access.html?tier=bundle</span>.
               </p>
             </div>
-            <a
-              id="upgrade-cta"
-              href="https://buy.stripe.com/test_argon_boilerplate_upsell_297"
-              class="shrink-0 inline-flex items-center justify-center px-6 py-4 rounded-xl bg-argon-amber text-slate-950 font-extrabold text-base hover:brightness-110 transition"
-            >
-              Upgrade for $297 →
-            </a>
+            <div class="shrink-0 max-w-xs">
+              <a
+                id="upgrade-cta"
+                href="#upgrade-unavailable"
+                aria-disabled="true"
+                class="inline-flex w-full items-center justify-center px-6 py-4 rounded-xl bg-argon-amber text-slate-950 font-extrabold text-base hover:brightness-110 transition"
+              >
+                Upgrade for $297 →
+              </a>
+              <p id="upgrade-note" class="mt-3 text-xs font-mono text-amber-200/90 leading-relaxed">
+                $297 upgrade link is not configured. The previous placeholder returned HTTP 403 and was removed. Paste a live Payment Link into config.js (paymentLinks.live.upsell297) and set mode to "live".
+              </p>
+            </div>
           </div>
         </aside>
 
@@ -292,7 +298,12 @@
   </footer>
 
   <script>
-    var UPSELL_STRIPE_URL = "https://buy.stripe.com/test_argon_boilerplate_upsell_297";
+    (function () {
+      var inFunnel = /\/funnel\//.test(location.pathname);
+      document.write('<script src="' + (inFunnel ? "../config.js" : "config.js") + '"><\/script>');
+    })();
+  </script>
+  <script>
     var CHECKLIST_KEY = "argon01_quickstart_checklist_v1";
     var STEP_COUNT = 5;
 
@@ -316,7 +327,21 @@
       var banner = document.getElementById("unprovisioned-banner");
       var upgrade = document.getElementById("upgrade-cta");
 
-      upgrade.href = UPSELL_STRIPE_URL;
+      var upsell = (window.ARGON_CONFIG && window.ARGON_CONFIG.checkoutUrl("upsell297", "")) || "";
+      var note = document.getElementById("upgrade-note");
+      if (upsell) {
+        upgrade.href = upsell;
+        upgrade.removeAttribute("aria-disabled");
+        upgrade.style.pointerEvents = "";
+        upgrade.style.opacity = "";
+        if (note) note.hidden = true;
+      } else {
+        upgrade.removeAttribute("href");
+        upgrade.setAttribute("aria-disabled", "true");
+        upgrade.style.pointerEvents = "none";
+        upgrade.style.opacity = "0.55";
+        if (note) note.hidden = false;
+      }
       pill.textContent = "TIER: " + tier.toUpperCase();
 
       if (tier === "bundle") {

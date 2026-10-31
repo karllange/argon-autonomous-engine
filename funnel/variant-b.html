@@ -591,20 +591,22 @@
   <!-- VANILLA JS: AUTONOMOUS SCOUT SIMULATOR + DYNAMIC STRIPE CHECKOUT      -->
   <!-- ===================================================================== -->
   <script>
-    // Configurable Stripe Payment Links (Replace with live Stripe URLs in production).
+    (function () {
+      var inFunnel = /\/funnel\//.test(location.pathname);
+      document.write('<script src="' + (inFunnel ? "../config.js" : "config.js") + '"><\/script>');
+    })();
+  </script>
+  <script>
+    // Payment Links come from config.js. (Replace with live Stripe URLs in production).
     // Point each Payment Link's success URL at the fulfillment portal:
     //   core  -> https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=core
     //   bundle -> https://karllange.github.io/argon-autonomous-engine/vault-access.html?tier=bundle
-    const STRIPE_PAYMENT_LINKS = {
-      core_97: "https://buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00",
-      bundle_394: "https://buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01"
-    };
-
-    // Lead capture endpoint for the Free 60-Second Generator opt-in.
-    // POST JSON: { email, niche, timestamp, utm_source }
-    // Leave "" until the ESP / Make / n8n webhook is live. An empty or failing
-    // endpoint never blocks the blueprint JSON download.
-    const LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz5eVdPbo46nwmhN6ZSu3p1kUIGoCfm0WNst6rmzAuJuQUHGVen95EIz9BNUC1hTJjB2A/exec";
+    function cfg() {
+      if (!window.ARGON_CONFIG) {
+        throw new Error("config.js did not load");
+      }
+      return window.ARGON_CONFIG;
+    }
 
     const CORE_PRICE_USD = 97;
     const BUMP_PRICE_USD = 297;
@@ -634,7 +636,8 @@
       const totalEl = document.getElementById('checkout-total-amount');
       const btnLabel = document.getElementById('stripe-btn-label');
 
-      const total = bumpChecked ? (CORE_PRICE_USD + BUMP_PRICE_USD) : CORE_PRICE_USD;
+      const prices = window.ARGON_CONFIG ? window.ARGON_CONFIG.prices : { coreUsd: CORE_PRICE_USD, bumpUsd: BUMP_PRICE_USD };
+      const total = bumpChecked ? (prices.coreUsd + prices.bumpUsd) : prices.coreUsd;
 
       if (bumpChecked) {
         bumpLineItem.classList.remove('hidden');
@@ -650,17 +653,23 @@
 
     function proceedToStripeCheckout(event) {
       event.preventDefault();
+      const c = cfg();
       const bumpChecked = document.getElementById('order-bump-checkbox').checked;
       const email = document.getElementById('checkout-email').value.trim();
-      const targetStripeUrl = bumpChecked ? STRIPE_PAYMENT_LINKS.bundle_394 : STRIPE_PAYMENT_LINKS.core_97;
-      const total = bumpChecked ? 394 : 97;
+      const key = bumpChecked ? 'bundle394' : 'core97';
+      const targetStripeUrl = c.checkoutUrl(key, email);
+      const total = bumpChecked ? (c.prices.coreUsd + c.prices.bumpUsd) : c.prices.coreUsd;
 
       const notice = document.getElementById('checkout-redirect-notice');
       notice.classList.remove('hidden');
-      notice.innerHTML = `✓ Routing <strong>${email}</strong> to Stripe Checkout (<strong>$${total}.00</strong>): <br/><a href="${targetStripeUrl}?prefilled_email=${encodeURIComponent(email)}" target="_blank" rel="noopener" class="underline font-bold">${targetStripeUrl}</a>`;
+      if (!targetStripeUrl) {
+        notice.textContent = "Checkout link is not set. Add the live Payment Link in config.js before sending buyers to Stripe.";
+        return;
+      }
+      notice.innerHTML = `✓ Routing <strong>${email}</strong> to Stripe Checkout (<strong>$${total}.00</strong>). <a href="${targetStripeUrl}" target="_blank" rel="noopener" class="underline font-bold">Continue if nothing opens.</a>`;
 
       setTimeout(() => {
-        window.open(`${targetStripeUrl}?prefilled_email=${encodeURIComponent(email)}`, '_blank');
+        window.open(targetStripeUrl, '_blank');
       }, 600);
     }
 
@@ -771,12 +780,13 @@
       // Unlock the blueprint immediately. Webhook delivery is non-blocking.
       document.getElementById('optin-success').classList.remove('hidden');
 
-      if (!LEAD_WEBHOOK_URL) {
+      const leadWebhook = (cfg().leadWebhookUrl || "").trim();
+      if (!leadWebhook) {
         return;
       }
 
       try {
-        fetch(LEAD_WEBHOOK_URL, {
+        fetch(leadWebhook, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "text/plain;charset=utf-8" },

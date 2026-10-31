@@ -136,7 +136,55 @@
       font-size: 0.875rem;
     }
 
-    .hero .btn { margin-top: 2.1rem; }
+    .hero .btn { margin-top: 1.6rem; }
+
+    .price-flag {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin: 0 0 1.15rem;
+    }
+
+    .price-amount {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 3.4rem);
+      font-weight: 560;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+
+    .price-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--mute);
+    }
+
+    .hero { padding: 3.4rem 0 3.6rem; }
+
+    #vault-offer { scroll-margin-top: 5.25rem; }
+
+    .offer-copy h2 { margin-bottom: 0.7rem; }
+
+    .offer-desc {
+      margin: 0;
+      max-width: 28rem;
+      font-family: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+
+    .offer-note {
+      margin: 0.7rem 0 0;
+      max-width: 28rem;
+      color: var(--mute);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .header-inner { flex-wrap: wrap; }
+
+    .btn-small { min-height: 44px; }
 
     .mission {
       padding: 1.5rem 0 6.5rem;
@@ -388,9 +436,10 @@
 
     @media (max-width: 700px) {
       h1 br { display: none; }
-      .hero { padding-top: 3.25rem; }
+      .hero { padding-top: 2.4rem; }
       .close-inner { align-items: flex-start; }
       .footer-inner { flex-direction: column; }
+      .btn-small { white-space: normal; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -404,16 +453,17 @@
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a class="wordmark" href="#top">ARGON</a>
-      <button class="btn btn-small" type="button" onclick="openCheckoutModal()">Get the Blueprint</button>
+      <button class="btn btn-small" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
     </div>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-heading">
       <div class="wrap wrap-hero">
+        <p class="price-flag"><span class="price-amount" data-price="core">$97</span> <span class="price-name">The Blueprint</span></p>
         <h1 id="hero-heading">The AI Wave is Here. <br />Don't Get Left Behind.</h1>
-        <p class="subhead">A practical, step-by-step survival guide for everyday folks to build their own AI-driven revenue engines—no computer science degree required.</p>
-        <button class="btn" type="button" onclick="openCheckoutModal()">Get the Blueprint</button>
+        <p class="subhead">The practical guide to building your own AI-driven revenue engine.</p>
+        <button class="btn" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
       </div>
     </section>
 
@@ -430,10 +480,15 @@
       </div>
     </section>
 
-    <section class="close" aria-label="Get the blueprint">
+    <section class="close" id="vault-offer" aria-labelledby="vault-offer-heading">
       <div class="close-inner">
-        <p>Let me show you how to do it in days.</p>
-        <button class="btn" type="button" onclick="openCheckoutModal()">Get the Blueprint</button>
+        <div class="offer-copy">
+          <p class="kicker">The offer</p>
+          <h2 id="vault-offer-heading">The Blueprint — <span data-price="core">$97</span></h2>
+          <p class="offer-desc">The practical guide to building your own AI-driven revenue engine.</p>
+          <p class="offer-note">Optional at checkout: Build kit for $297. Together, $394.</p>
+        </div>
+        <button class="btn" data-cta="primary" type="button" onclick="openCheckoutModal()">Get the Blueprint — $97</button>
       </div>
     </section>
   </main>
@@ -506,17 +561,33 @@
   </div>
 
   <script>
+    (function () {
+      var inFunnel = /\/funnel\//.test(location.pathname);
+      document.write('<script src="' + (inFunnel ? "../config.js" : "config.js") + '"><\/script>');
+    })();
+  </script>
+  <script>
+    // Payment Links come from config.js.
     // Point each Payment Link success URL at the fulfillment portal:
     //   core   -> vault-access.html?tier=core
     //   bundle -> vault-access.html?tier=bundle
-    const STRIPE_PAYMENT_LINKS = {
-      core_97: "https://buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00",
-      bundle_394: "https://buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01"
-    };
+    function cfg() {
+      if (!window.ARGON_CONFIG) {
+        throw new Error("config.js did not load");
+      }
+      return window.ARGON_CONFIG;
+    }
 
-    const LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz5eVdPbo46nwmhN6ZSu3p1kUIGoCfm0WNst6rmzAuJuQUHGVen95EIz9BNUC1hTJjB2A/exec";
-    const CORE_PRICE_USD = 97;
-    const BUMP_PRICE_USD = 297;
+    function applyOfferCopy() {
+      var c = cfg();
+      var label = c.primaryCta();
+      document.querySelectorAll("[data-cta='primary']").forEach(function (el) {
+        el.textContent = label;
+      });
+      document.querySelectorAll("[data-price='core']").forEach(function (el) {
+        el.textContent = "$" + c.prices.coreUsd;
+      });
+    }
 
     function openCheckoutModal() {
       const modal = document.getElementById("checkout-modal");
@@ -546,11 +617,12 @@
     }
 
     function updateCheckoutTotalUI() {
-      const bumpChecked = document.getElementById("order-bump-checkbox").checked;
-      const bumpLineItem = document.getElementById("bump-line-item");
-      const totalEl = document.getElementById("checkout-total-amount");
-      const btnLabel = document.getElementById("stripe-btn-label");
-      const total = bumpChecked ? CORE_PRICE_USD + BUMP_PRICE_USD : CORE_PRICE_USD;
+      var c = cfg();
+      var bumpChecked = document.getElementById("order-bump-checkbox").checked;
+      var bumpLineItem = document.getElementById("bump-line-item");
+      var totalEl = document.getElementById("checkout-total-amount");
+      var btnLabel = document.getElementById("stripe-btn-label");
+      var total = bumpChecked ? c.prices.coreUsd + c.prices.bumpUsd : c.prices.coreUsd;
 
       bumpLineItem.classList.toggle("is-on", bumpChecked);
       totalEl.textContent = "$" + total + ".00";
@@ -559,17 +631,26 @@
 
     function proceedToStripeCheckout(event) {
       event.preventDefault();
-      const bumpChecked = document.getElementById("order-bump-checkbox").checked;
-      const email = document.getElementById("checkout-email").value.trim();
-      const targetStripeUrl = bumpChecked ? STRIPE_PAYMENT_LINKS.bundle_394 : STRIPE_PAYMENT_LINKS.core_97;
-      const total = bumpChecked ? CORE_PRICE_USD + BUMP_PRICE_USD : CORE_PRICE_USD;
-      const notice = document.getElementById("checkout-redirect-notice");
-      const timestamp = new Date().toISOString();
-      const utm_source = new URLSearchParams(window.location.search).get("utm_source") || "";
+      var c = cfg();
+      var bumpChecked = document.getElementById("order-bump-checkbox").checked;
+      var email = document.getElementById("checkout-email").value.trim();
+      var key = bumpChecked ? "bundle394" : "core97";
+      var targetStripeUrl = c.checkoutUrl(key, email);
+      var total = bumpChecked ? c.prices.coreUsd + c.prices.bumpUsd : c.prices.coreUsd;
+      var notice = document.getElementById("checkout-redirect-notice");
+      var timestamp = new Date().toISOString();
+      var utm_source = new URLSearchParams(window.location.search).get("utm_source") || "";
+      var webhook = (c.leadWebhookUrl || "").trim();
 
-      if (LEAD_WEBHOOK_URL) {
+      notice.classList.add("is-on");
+      if (!targetStripeUrl) {
+        notice.textContent = "Checkout link is not set. Add the live Payment Link in config.js before sending buyers to Stripe.";
+        return;
+      }
+
+      if (webhook) {
         try {
-          fetch(LEAD_WEBHOOK_URL, {
+          fetch(webhook, {
             method: "POST",
             mode: "no-cors",
             headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -579,13 +660,14 @@
         } catch (err) {}
       }
 
-      notice.classList.add("is-on");
-      notice.innerHTML = "Opening checkout for <strong>" + email + "</strong> ($" + total + ".00). <a href=\"" + targetStripeUrl + "?prefilled_email=" + encodeURIComponent(email) + "\" target=\"_blank\" rel=\"noopener\">Continue if nothing opens.</a>";
+      notice.innerHTML = "Opening checkout for <strong>" + email + "</strong> ($" + total + ".00). <a href=\"" + targetStripeUrl + "\" target=\"_blank\" rel=\"noopener\">Continue if nothing opens.</a>";
 
       setTimeout(function () {
-        window.open(targetStripeUrl + "?prefilled_email=" + encodeURIComponent(email), "_blank");
+        window.open(targetStripeUrl, "_blank");
       }, 600);
     }
+
+    applyOfferCopy();
 
     window.addEventListener("scroll", function () {
       document.getElementById("site-header").classList.toggle("is-scrolled", window.scrollY > 8);

@@ -1,7 +1,7 @@
 {
   "project": "ARGON-01",
   "live_url": "https://karllange.github.io/argon-autonomous-engine/",
-  "lead_webhook_url": "https://script.google.com/macros/s/AKfycbz5eVdPbo46nwmhN6ZSu3p1kUIGoCfm0WNst6rmzAuJuQUHGVen95EIz9BNUC1hTJjB2A/exec",
+  "lead_webhook_url": "",
   "business_unit": "STANDALONE_AUTONOMOUS_UNIT",
   "governance": "PERSONAL_ZERO_PHI",
   "deployment": {
@@ -41,8 +41,11 @@
     "deliverable_zip": "vault_product/ARGON_Turnkey_Agent_Vault_v1.zip",
     "upsell_bundle_zip": "vault_product/ARGON_Full_Boilerplate_Bundle_v1.zip",
     "stripe_payment_links": {
-      "core_97": "https://buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00",
-      "bundle_394": "https://buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01"
+      "source": "config.js",
+      "mode": "sandbox",
+      "live_core_97": "",
+      "live_bundle_394": "",
+      "live_upsell_297": ""
     }
   },
   "capital_pool": {
@@ -62,8 +65,8 @@
     "sales": 0
   },
   "self_healing_flags": {
-    "current_status": "STRIPE_PAYMENT_LINKS_WIRED_READY_FOR_TRANCHE_1",
-    "action_required": "LAUNCH_TRANCHE_1_ADS_AND_MONITOR_ROAS_CIRCUIT_BREAKER",
-    "last_agent_run": "CURSOR_STRIPE_LINKS_WIRED: Wired Stripe Payment Links for core_97 (test_dRm14gfqDc9Nae1fBC5AQ00) and bundle_394 (test_00waEQdiv8XBgCpahi5AQ01) in funnel/index.html, index.html, and variant-b.html."
+    "current_status": "FUNNEL_CONFIG_CENTRALIZED_AWAITING_LIVE_PAYMENT_LINKS",
+    "action_required": "KARL_PASTE_LIVE_STRIPE_PAYMENT_LINKS_AND_ROTATE_APPS_SCRIPT",
+    "last_agent_run": "GROK_BOT: Centralized public Payment Links in config.js, showed $97 on the first screen, restored #vault-offer, removed the Apps Script URL from client pages, and stopped publishing internal files on GitHub Pages. Live links are still blank."
   }
 }

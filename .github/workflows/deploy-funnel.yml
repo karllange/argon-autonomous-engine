@@ -19,20 +19,37 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Sync funnel assets to gh-pages branch
+      # Publish only the public funnel. Internal files stay in the git repo
+      # and are removed from gh-pages if an earlier deploy put them there.
+      # Public: config.js, the three HTML pages, and the download zips.
+      # Not public: engine_state.json, AGENTS.md, AI_HANDOFF.md, marketing/,
+      # controller/, scout/, creatives/, vault_product/, .cursor/, market intel.
+      - name: Publish public funnel files only
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          STAGE="$(mktemp -d)"
+          mkdir -p "$STAGE/funnel/downloads" "$STAGE/downloads"
+          cp -f config.js "$STAGE/config.js"
+          cp -f funnel/index.html "$STAGE/funnel/index.html"
+          cp -f funnel/variant-b.html "$STAGE/funnel/variant-b.html"
+          cp -f funnel/vault-access.html "$STAGE/funnel/vault-access.html"
+          cp -a funnel/downloads/. "$STAGE/funnel/downloads/"
+          cp -f funnel/index.html "$STAGE/index.html"
+          cp -f funnel/variant-b.html "$STAGE/variant-b.html"
+          cp -f funnel/vault-access.html "$STAGE/vault-access.html"
+          cp -a funnel/downloads/. "$STAGE/downloads/"
+          touch "$STAGE/.nojekyll"
+
           git fetch origin gh-pages
           git checkout gh-pages
-          git checkout "${GITHUB_SHA}" -- funnel engine_state.json
-          cp -f funnel/index.html index.html
-          cp -f funnel/variant-b.html variant-b.html
-          cp -f funnel/vault-access.html vault-access.html
-          rm -rf downloads
-          cp -r funnel/downloads downloads
-          git add index.html variant-b.html vault-access.html downloads funnel engine_state.json
+          git rm -rf . >/dev/null
+          git clean -fdx
+          cp -a "$STAGE/." .
+          git add -A
           if ! git diff --cached --quiet; then
-            git commit -m "deploy(pages): sync funnel/index.html to root of gh-pages"
+            git commit -m "deploy(pages): publish public funnel files only"
             git push origin gh-pages
           fi
