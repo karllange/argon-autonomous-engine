@@ -4,6 +4,34 @@ Shared scratch pad for Gemini, Cursor Composer, and Grok Bot. Newest entry in ea
 
 ---
 
+## Section 0: Blueprint Manager Shared State (all agents)
+
+Every agent updates this section at the end of each session.
+
+### Completed Today
+
+#### 2026-11-01
+
+- Master Project Blueprint Manager installed: `AGENTS.md` gained the Blueprint Manager loop, the Final-Stage PHI Security Gate, the general Secrets rule, the gemini-3.5-flash audit steps, and a copy/identity summary. Existing rules kept as they were. (PR grok/blueprint-manager)
+
+### Pending Tasks
+
+- Rotate the Google Apps Script lead webhook (its URL is in git history and on `gh-pages`). The URL is not written here.
+- Karl's decisions before live Stripe: refund policy text, live Payment Links, and pricing for the new training.
+- `kit-draft/` is a draft and is not linked from the site or published to Pages. It is not ready as a paid deliverable.
+- Open audit items in Section 2.
+
+### Next Immediate Micro-Step
+
+- [Mac/PC Deep Build] Rotate the Apps Script webhook deployment and update `config.js` `leadWebhookUrl` on a gated PR for Karl.
+- [Phone-Friendly] Karl decides the refund policy wording and price point, so the agent can draft copy that uses only those facts.
+
+### Gemini Review Log
+
+For this repo, Gemini review entries stay in **Section 2** below, under entries that start "Gemini API Compliance Approved (gemini-3.5-flash)" (existing practice). Newest first.
+
+---
+
 ## Section 1: Active Blueprint Status (Gemini + Cursor Composer)
 
 **Who writes this:** Gemini (blueprint, architecture, funnel strategy, task queue) and Cursor Composer (what was implemented on a local branch).
@@ -36,6 +64,12 @@ No entry yet.
 - Untested:
 - Screenshots:
 ```
+
+### 2026-11-01 — Gemini API Compliance Approved (gemini-3.5-flash)
+
+- Scope: PR #13, docs-only (`AGENTS.md`, `AI_HANDOFF.md`). Master Project Blueprint Manager install. PHI: none.
+- Verdict: pass, 0 compliance issues, 0 conversion notes.
+- Merged under Hybrid Auto-Merge (docs only).
 
 ### 2026-10-31 — Gemini API Compliance Approved (gemini-3.5-flash)
 
@@ -218,7 +252,7 @@ Observed on the core link and the bundle link, from the modal and from a direct 
 
 - Core Payment Link path: `buy.stripe.com/test_dRm14gfqDc9Nae1fBC5AQ00`
 - Bundle Payment Link path: `buy.stripe.com/test_00waEQdiv8XBgCpahi5AQ01`
-- Checkout title and header: "Realistic Solutions, Inc sandbox" with a visible **Sandbox** badge.
+- Checkout title and header: the Stripe account's business name plus "sandbox" with a visible **Sandbox** badge.
 - Direct GET of each link returned HTTP 200 and the same checkout.
 - Stripe.js logged, on the direct loads only: payment method types `link`, `klarna`, and `amazon_pay` are not activated. They are shown in test mode and will be hidden in live mode.
 - Some Stripe-hosted requests failed on the checkout page (`net::ERR_BLOCKED_BY_ORB` on a CloudFront URL, and aborted hCaptcha logo images). Those failures were on Stripe's page, not on the ARGON pages.
@@ -284,7 +318,7 @@ Whether Stripe's success URL returns to `vault-access.html?tier=core` or `?tier=
 
 Action: send the buyer to the Payment Link in the same tab, and drop the extra email field unless the webhook is required before Stripe. Confirm each live Payment Link's success URL against the fulfillment page.
 
-The Stripe account name on the pay step is "Realistic Solutions, Inc", not ARGON. That is a trust drop at the moment of payment.
+The Stripe account name on the pay step is the company's legal business name, not ARGON. That is a trust drop at the moment of payment.
 
 #### P2. A few tap targets are small. The page is otherwise readable on a 390px screen.
 
