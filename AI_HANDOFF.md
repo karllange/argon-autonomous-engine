@@ -65,6 +65,12 @@ No entry yet.
 - Screenshots:
 ```
 
+### 2026-11-01 — Gemini API Compliance Approved (gemini-3.5-flash)
+
+- Scope: PR #13, docs-only (`AGENTS.md`, `AI_HANDOFF.md`). Master Project Blueprint Manager install. PHI: none.
+- Verdict: pass, 0 compliance issues, 0 conversion notes.
+- Merged under Hybrid Auto-Merge (docs only).
+
 ### 2026-10-31 — Gemini API Compliance Approved (gemini-3.5-flash)
 
 Scope: `marketing/screen-recording-outline.md` (PR #12). Verdict pass, 0 compliance issues. Skipped 2 conversion suggestions as Karl's decisions: (1) trim Git/branch detail for a non-technical audience, (2) add a launch window and early-access perk/discount. Merged under Hybrid Auto-Merge (`marketing/` + `AI_HANDOFF.md` only).
